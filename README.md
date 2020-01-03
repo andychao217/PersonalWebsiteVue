@@ -1,8 +1,6 @@
 <<<<<<< HEAD
 # PersonalWebsiteVue
 Brand new personal website by Vue.js
-=======
-# personalwebsite
 
 ## Project setup
 ```
