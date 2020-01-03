@@ -1,7 +1,7 @@
 /* eslint-disable */
 <template>
   <div>
-    <a-tooltip placement="left" style="font-size:1rem;margin-right:5px;">
+    <a-tooltip placement="left" style="font-size:20px;margin-right:5px;">
       <template slot="title">
         <span>{{fullscreenInfo}}</span>
       </template>
@@ -9,7 +9,7 @@
     </a-tooltip>
     
     <a-dropdown>
-      <a class="ant-dropdown-link" href="#" style="font-size:1rem;">
+      <a class="ant-dropdown-link" href="#" style="font-size:20px;">
         <a-icon type="global" />
       </a>
       <a-menu slot="overlay">
