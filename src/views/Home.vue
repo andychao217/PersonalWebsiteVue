@@ -7,18 +7,22 @@
           {{logoText}}
         </span>
       </div>
-      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']">
+      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']" @click="handleChangePage">
         <a-menu-item key="1">
-          <a-icon type="user" />
-          <span>nav 1</span>
+          <a-icon type="user"/>
+          <span>關於我</span>
         </a-menu-item>
         <a-menu-item key="2">
-          <a-icon type="video-camera" />
-          <span>nav 2</span>
+          <a-icon type="profile" />
+          <span>時間綫</span>
         </a-menu-item>
         <a-menu-item key="3">
-          <a-icon type="upload" />
-          <span>nav 3</span>
+          <a-icon type="picture" />
+          <span>作品集</span>
+        </a-menu-item>
+        <a-menu-item key="4">
+          <a-icon type="mail" />
+          <span>聯係我</span>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -79,6 +83,10 @@
         let isCollaped = !this.collapsed
         this.collapsed = isCollaped
         localStorage.collapsed = isCollaped
+      },
+      handleChangePage (data) {
+        this.$router.push('about')
+        console.log(data)
       }
     },
     created () {
