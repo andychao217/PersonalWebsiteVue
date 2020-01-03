@@ -31,7 +31,7 @@
           style="float:left"
         />
         <div style="float:right">
-          
+          <HeaderToolbar v-model="isFullscreen"></HeaderToolbar>
         </div>
       </a-layout-header>
       <a-layout-content
@@ -55,18 +55,21 @@
 </template>
 <script>
   const MainFooter = () => import('@/components/MainFooter.vue')
+  const HeaderToolbar = () => import('@/components/HeaderToolbar.vue')
   import profilePic from "@/assets/profilepic.jpg"
 
   export default {
     name: 'home',
     components: {
-      MainFooter
+      MainFooter,
+      HeaderToolbar
     },
     data() {
       return {
         collapsed: false,
         logoText: "ANDY CHAO",
-        imgUrl: profilePic
+        imgUrl: profilePic,
+        isFullscreen: false,
       }
     },
     methods:{

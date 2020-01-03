@@ -1,20 +1,13 @@
 /* eslint-disable */
 <template>
-  <div class="full-screen-btn-con">
-    <Tooltip
-      :content="value ? '退出全屏' : '全屏'"
-      placement="left"
-      v-if="showFullScreenBtn"
-      style="margin-left:10px"
-    >
-      <Icon
-        @click.native="handleChange"
-        :type="value ? 'ios-contract' : 'ios-expand'"
-        :size="28"
-        class="menuIcon"
-      >
-      </Icon>
-    </Tooltip>
+  <div>
+    <a-tooltip placement="left" style="font-size:1rem;margin-right:5px;">
+      <template slot="title">
+        <span>{{fullscreenInfo}}</span>
+      </template>
+      <a-icon @click="handleFullscreen" :type="value ? 'fullscreen-exit' : 'fullscreen'" />
+    </a-tooltip>
+    
     <a-dropdown>
       <a class="ant-dropdown-link" href="#" style="font-size:1rem;">
         <a-icon type="global" />
@@ -39,8 +32,8 @@ export default {
     }
   },
   computed: {
-    showFullScreenBtn () {
-      return !(this.$util.isIE())
+    fullscreenInfo () {
+      return this.value? '退出全屏':'全屏'
     }
   },
   props: {
@@ -73,13 +66,9 @@ export default {
           main.msRequestFullscreen()
         }
       }
-    },
-    handleChange () {
-      this.handleFullscreen()
-    },
+    }
   },
   mounted () {  //全屏事件监听
-    let _this = this
     let isFullscreen = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen
     isFullscreen = !!isFullscreen
     document.addEventListener('fullscreenchange', () => {
