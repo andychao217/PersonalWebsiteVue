@@ -12,12 +12,12 @@
       <a class="ant-dropdown-link" href="#" style="font-size:20px;">
         <a-icon type="global" />
       </a>
-      <a-menu slot="overlay">
-        <a-menu-item>
-          <a href="javascript:;">中文</a>
+      <a-menu slot="overlay" @click="handleChangeLang">
+        <a-menu-item key="1">
+          中文
         </a-menu-item>
-        <a-menu-item>
-          <a href="javascript:;">English</a>
+        <a-menu-item key="2">
+          English
         </a-menu-item>
       </a-menu>
     </a-dropdown>
@@ -29,6 +29,7 @@ export default {
   name: 'Fullscreen',
   data () {
     return {
+      lang: 'zh-CN'
     }
   },
   computed: {
@@ -66,6 +67,16 @@ export default {
           main.msRequestFullscreen()
         }
       }
+    },
+    handleChangeLang (data) {
+      let curLang = 'zh-CN'
+      if (data.key == 2) {
+        curLang = 'en-US'
+      }
+      this.lang = curLang
+      this.$i18n.locale = this.lang
+      localStorage.lang = this.lang
+      document.title = this.$t('m.windowTitle')
     }
   },
   mounted () {  //全屏事件监听
@@ -88,6 +99,13 @@ export default {
       this.$emit('on-change', !this.value)
     })
     this.$emit('input', isFullscreen)
+    if (localStorage.lang) {
+      this.lang = localStorage.lang
+    } else {
+      this.lang = 'zh-CN'
+    }
+    this.$i18n.locale = this.lang
+    document.title = this.$t('m.windowTitle')
   }
 }
 </script>

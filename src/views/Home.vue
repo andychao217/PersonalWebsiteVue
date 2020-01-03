@@ -24,12 +24,14 @@
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0 16px; border-bottom:thin solid lightgray;">
-        <a-icon
-          class="trigger"
-          :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-          @click="controlSidebar"
-          style="float:left"
-        />
+        <div style="float:left;height:64px;">
+          <a-icon
+            class="trigger"
+            :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+            @click="controlSidebar"
+          />
+          <span style="font-size:20px;">{{$t('m.hello')}}</span>
+        </div>
         <div style="float:right">
           <HeaderToolbar v-model="isFullscreen"></HeaderToolbar>
         </div>
@@ -69,7 +71,7 @@
         collapsed: false,
         logoText: "ANDY CHAO",
         imgUrl: profilePic,
-        isFullscreen: false,
+        isFullscreen: false
       }
     },
     methods:{
