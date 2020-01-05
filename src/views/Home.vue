@@ -11,21 +11,9 @@
         <span v-if="!collapsed">{{logoText}}</span>
       </div>
       <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']" @click="handleChangePage">
-        <a-menu-item key="1">
-          <a-icon type="user" />
-          <span>關於我</span>
-        </a-menu-item>
-        <a-menu-item key="2">
-          <a-icon type="profile" />
-          <span>時間綫</span>
-        </a-menu-item>
-        <a-menu-item key="3">
-          <a-icon type="picture" />
-          <span>作品集</span>
-        </a-menu-item>
-        <a-menu-item key="4">
-          <a-icon type="mail" />
-          <span>聯係我</span>
+        <a-menu-item v-for="item in menus" :key="item.name">
+          <a-icon :type="item.meta.icon" />
+          <span>{{$t(item.meta.title)}}</span>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -80,7 +68,8 @@ export default {
       collapsed: false,
       logoText: "ANDY CHAO",
       imgUrl: profilePic,
-      isFullscreen: false
+      isFullscreen: false,
+      menus: null
     };
   },
   methods: {
@@ -90,18 +79,7 @@ export default {
       localStorage.collapsed = isCollaped;
     },
     handleChangePage(data) {
-      let index = data.key;
-      if (index == 1) {
-        this.$router.push("about");
-      } else if (index == 2) {
-        this.$router.push("timeline");
-      } else if (index == 3) {
-        this.$router.push("portfolio");
-      } else if (index == 4) {
-        this.$router.push("contact");
-      }
-
-      console.log(data);
+      this.$router.push(data.key);
     }
   },
   created() {
@@ -110,8 +88,7 @@ export default {
     } else {
       this.collapsed = false;
     }
+    this.menus = this.$router.options.routes[0].children;
   }
 };
 </script>
-<style>
-</style>
