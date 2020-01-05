@@ -56,6 +56,7 @@
 const MainFooter = () => import("@/components/MainFooter.vue");
 const HeaderToolbar = () => import("@/components/HeaderToolbar.vue");
 import profilePic from "@/assets/profilepic.jpg";
+//import Darkmode from "darkmode-js";
 
 export default {
   name: "home",
@@ -89,6 +90,9 @@ export default {
       this.collapsed = false;
     }
     this.menus = this.$router.options.routes[0].children;
+  },
+  mounted() {
+    //  new Darkmode().showWidget();
   }
 };
 </script>
