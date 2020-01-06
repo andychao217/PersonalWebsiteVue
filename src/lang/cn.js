@@ -8,5 +8,9 @@ export const m = {
   collapse: "收起",
   expand: "展开",
   findMe: "找到我",
-  iAmHere: "我在这儿"
+  iAmHere: "我在这儿",
+  fullscreen: "全屏",
+  fullscreenExit: "退出全屏",
+  resumeTxt: "简历",
+  download: "下载"
 };

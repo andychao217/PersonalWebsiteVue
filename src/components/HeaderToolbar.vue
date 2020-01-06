@@ -7,7 +7,7 @@
       </template>
       <a-icon @click="handleFullscreen" :type="value ? 'fullscreen-exit' : 'fullscreen'" />
     </a-tooltip>
-    <a-dropdown>
+    <a-dropdown style="margin-right:5px;">
       <a class="ant-dropdown-link" href="#" style="font-size:20px;">
         <a-icon type="global" />
       </a>
@@ -16,6 +16,15 @@
         <a-menu-item key="2">English</a-menu-item>
       </a-menu>
     </a-dropdown>
+    <a-tooltip placement="bottom">
+      <template slot="title">
+        <span>{{$t('m.download')}}</span>
+      </template>
+      <a :href="resumeLink" target="_blank" style="font-size:20px;">
+        <a-icon type="download" /> 
+        <span>{{$t('m.resumeTxt')}}</span>
+      </a>
+    </a-tooltip>
   </div>
 </template>
 
@@ -24,12 +33,21 @@ export default {
   name: "Fullscreen",
   data() {
     return {
-      lang: "zh-CN"
+      lang: "zh-CN",
+      publicPath: process.env.BASE_URL
     };
   },
   computed: {
-    fullscreenInfo() {
-      return this.value ? "退出全屏" : "全屏";
+    fullscreenInfo () {
+      return this.value ? this.$t("m.fullscreenExit") : this.$t("m.fullscreen");
+    },
+    resumeLink () {
+      let lang = this.lang
+      if (lang === 'zh-CN') {
+        return  this.publicPath + '赵庆简历.pdf';
+      } else {
+        return this.publicPath + 'AndyChaoResume.pdf';
+      }
     }
   },
   props: {
@@ -39,7 +57,7 @@ export default {
     }
   },
   methods: {
-    handleFullscreen() {
+    handleFullscreen () {
       //全屏控制
       let main = document.body;
       if (this.value) {
@@ -64,7 +82,7 @@ export default {
         }
       }
     },
-    handleChangeLang(data) {
+    handleChangeLang (data) {
       let curLang = "zh-CN";
       if (data.key == 2) {
         curLang = "en-US";

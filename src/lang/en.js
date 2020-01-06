@@ -8,5 +8,9 @@ export const m = {
   collapse: "Collapse",
   expand: "Expand",
   findMe: "Find me",
-  iAmHere: "I'm here"
+  iAmHere: "I'm here",
+  fullscreen: "Fullscreen",
+  fullscreenExit: "Exit Fullscreen",
+  resumeTxt: "Resume",
+  download: "Download"
 };
