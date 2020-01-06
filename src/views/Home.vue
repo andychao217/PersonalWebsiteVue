@@ -22,11 +22,16 @@
         style="background: #fff; padding: 0 16px; border-bottom:thin solid lightgray;"
       >
         <div style="float:left;height:64px;">
-          <a-icon
-            class="trigger"
-            :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-            @click="controlSidebar"
-          />
+          <a-tooltip placement="bottom">
+            <template slot="title">
+              <span>{{collapseTxt}}</span>
+            </template>
+            <a-icon
+              class="trigger"
+              :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+              @click="controlSidebar"
+            />
+          </a-tooltip>
           <span style="font-size:20px;">{{$t('m.hello')}}</span>
         </div>
         <div style="float:right">
@@ -72,6 +77,11 @@ export default {
       isFullscreen: false,
       menus: null
     };
+  },
+  computed: {
+    collapseTxt () {
+      return this.collapsed? this.$t('m.expand'):this.$t('m.collapse');
+    }
   },
   methods: {
     controlSidebar() {
