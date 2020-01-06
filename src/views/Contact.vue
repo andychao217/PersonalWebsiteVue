@@ -36,14 +36,14 @@
   </div>
 </template>
 <script>
-  import BaiduMap from 'vue-baidu-map/components/map/Map.vue'
-  import BmTraffic from 'vue-baidu-map/components/layers/Traffic.vue'
-  import BmMapType from 'vue-baidu-map/components/controls/MapType.vue'
-  import BmNavigation from 'vue-baidu-map/components/controls/Navigation.vue'
-  import BmOverviewMap from 'vue-baidu-map/components/controls/OverviewMap.vue'
-  import BmGeolocation from 'vue-baidu-map/components/controls/Geolocation.vue'
-  import BmMarker from 'vue-baidu-map/components/overlays/Marker.vue'
-  import BmLabel from 'vue-baidu-map/components/overlays/Label.vue'
+  const BaiduMap = () => import("vue-baidu-map/components/map/Map.vue");
+  const BmTraffic = () => import("vue-baidu-map/components/layers/Traffic.vue");
+  const BmMapType = () => import("vue-baidu-map/components/controls/MapType.vue");
+  const BmNavigation = () => import("vue-baidu-map/components/controls/Navigation.vue");
+  const BmOverviewMap = () => import("vue-baidu-map/components/controls/OverviewMap.vue");
+  const BmGeolocation = () => import("vue-baidu-map/components/controls/Geolocation.vue");
+  const BmMarker = () => import("vue-baidu-map/components/overlays/Marker.vue");
+  const BmLabel = () => import("vue-baidu-map/components/overlays/Label.vue");
   export default {
     components: {
       BaiduMap,
@@ -76,12 +76,12 @@
     watch: {
       contentHeight(val) {
         if (!this.timer) {
-          this.contentHeight = val
-          this.timer = true
-          let that = this
+          this.contentHeight = val;
+          this.timer = true;
+          let that = this;
           setTimeout(function () {
-            that.timer = false
-          }, 400)
+            that.timer = false;
+          }, 400);
         }
       }
     },

@@ -32,7 +32,7 @@
       </a-layout-header>
       <a-layout-content :style="{ 
           margin: '16px', 
-          padding: '0px 24px', 
+          padding: '0px', 
           minHeight: '400px', 
           textAlign: 'center',
           overflowY: 'hidden'
