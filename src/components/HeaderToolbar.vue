@@ -94,13 +94,19 @@
       }
     },
     created() {
+      let _this = this;
       if (localStorage.lang) {
-        this.lang = localStorage.lang;
+        _this.lang = localStorage.lang;
       } else {
-        this.lang = "zh-CN";
+        if (navigator.language === "zh-CN") {
+          _this.lang = "zh-CN";
+        } else {
+          _this.lang = "en-US";
+        }
       }
       this.$i18n.locale = this.lang;
       document.title = this.$t("m.windowTitle");
+      console.log(navigator.language);
     },
     mounted() {
       //全屏事件监听
