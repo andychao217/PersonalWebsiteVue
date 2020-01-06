@@ -1,5 +1,5 @@
 export default {
-  resizeTable () {
+  resizeTable() {
     if (window.innerHeight) {
       return window.innerHeight - 230
     } else if ((document.body) && (document.body.clientHeight)) {
@@ -9,7 +9,7 @@ export default {
       return document.documentElement.clientHeight - 230
     }
   },
-  splitArray (array, pageSize) {
+  splitArray(array, pageSize) {
     let currData = []
     let tempPages = []
     for (var i = 0; i < array.length; i++) {
@@ -21,15 +21,17 @@ export default {
     }
     return tempPages
   },
-  isValidIP (ip) {
-    let reg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/
+  isValidIP(ip) {
+    let reg =
+      /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/
     return reg.test(ip)
   },
-  isValidMac (mac) {
-    let reg = /^[A-Fa-f\d]{2}:[A-Fa-f\d]{2}:[A-Fa-f\d]{2}:[A-Fa-f\d]{2}:[A-Fa-f\d]{2}:[A-Fa-f\d]{2}$/
+  isValidMac(mac) {
+    let reg =
+      /^[A-Fa-f\d]{2}:[A-Fa-f\d]{2}:[A-Fa-f\d]{2}:[A-Fa-f\d]{2}:[A-Fa-f\d]{2}:[A-Fa-f\d]{2}$/
     return reg.test(mac)
   },
-  formatDate (time, format = 'YYYY-MM-DD hh:mm:ss') {
+  formatDate(time, format = 'YYYY-MM-DD hh:mm:ss') {
     let date = new Date(time)
     let year = date.getFullYear()
     let month = date.getMonth() + 1
@@ -48,44 +50,44 @@ export default {
       .replace(/ss/g, preArr[sec] || sec)
     return newTime
   },
-  randomNum (minNum, maxNum) {
-    switch(arguments.length){
+  randomNum(minNum, maxNum) {
+    switch (arguments.length) {
       case 1:
         return parseInt(Math.random() * minNum + 1, 10)
       case 2:
-        return parseInt(Math.random() * (maxNum-minNum + 1) + minNum, 10)
+        return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10)
       default:
         return 0
     }
   },
-  getIndex (arr, value) {
-    for (var i=0; i<arr.length; i++) {
-      if(this[i] == value){
-          return i;
+  getIndex(arr, value) {
+    for (var i = 0; i < arr.length; i++) {
+      if (this[i] == value) {
+        return i;
       }
     }
   },
-  isIE () {
+  isIE() {
     if (!!window.ActiveXObject || "ActiveXObject" in window) {
       return true
     } else {
       return false
     }
   },
-  findIndex (arr, item) {
+  findIndex(arr, item) {
     if (Array.prototype.indexOf) {
       return arr.indexOf(item)
     } else {
-      for (var i=0; i<arr.length; i++) {
-        if( arr[i] === item ){
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === item) {
           return i
-        }else{
+        } else {
           return -1
         }
       }
     }
   },
-  removeByName (arr, val) {
+  removeByName(arr, val) {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].name === val) {
         arr.splice(i, 1)
@@ -94,7 +96,7 @@ export default {
     }
     return arr
   },
-  errorMsg (str) {
+  errorMsg(str) {
     let res = ''
     switch (str) {
       case "UserAuthentication error":
@@ -122,22 +124,23 @@ export default {
         res = 'NVR网络错误: NVR离线或者其他网络参数错误'
         break
       case 'the database is not bind':
-          res = '数据库未绑定错误'
-          break
+        res = '数据库未绑定错误'
+        break
       case 'the port is error':
         res = '端口号错误'
         break
       case 'the server is unauthorized':
-          res = '服务器未授权错误'
-          break
+        res = '服务器未授权错误'
+        break
       default:
         res = str
     }
     return res
   },
   deepCompare(x, y) {
-    console.log(x,y)
+    console.log(x, y)
     var i, l, leftChain, rightChain
+
     function compare2Objects(x, y) {
       var p
       // remember that NaN === NaN returns false
@@ -159,8 +162,7 @@ export default {
         (x instanceof Date && y instanceof Date) ||
         (x instanceof RegExp && y instanceof RegExp) ||
         (x instanceof String && y instanceof String) ||
-        (x instanceof Number && y instanceof Number)) 
-      {
+        (x instanceof Number && y instanceof Number)) {
         return x.toString() === y.toString()
       }
       // At last checking prototypes as good as we can
@@ -195,7 +197,7 @@ export default {
         } else if (typeof y[p] !== typeof x[p]) {
           return false
         }
-        switch (typeof(x[p])) {
+        switch (typeof (x[p])) {
           case 'object':
           case 'function':
             leftChain.push(x)
@@ -216,7 +218,7 @@ export default {
       return true
     }
     if (arguments.length < 1) {
-      return true 
+      return true
       //Die silently? Don't know how to handle such case, please help...
       // throw "Need two or more arguments to compare"
     }

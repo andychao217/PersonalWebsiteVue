@@ -9,51 +9,48 @@ VueRouter.prototype.push = function push(location) {
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/",
-    name: "home",
-    component: Home,
-    children: [
-      {
-        path: "/about",
-        name: "about",
-        meta: {
-          icon: "user",
-          title: "m.about"
-        },
-        component: () => import("../views/About.vue")
+const routes = [{
+  path: "/",
+  name: "home",
+  component: Home,
+  children: [{
+      path: "/about",
+      name: "about",
+      meta: {
+        icon: "user",
+        title: "m.about"
       },
-      {
-        path: "/timeLine",
-        name: "timeLine",
-        meta: {
-          icon: "profile",
-          title: "m.timeLine"
-        },
-        component: () => import("../views/Timeline.vue")
+      component: () => import("../views/About.vue")
+    },
+    {
+      path: "/timeLine",
+      name: "timeLine",
+      meta: {
+        icon: "profile",
+        title: "m.timeLine"
       },
-      {
-        path: "/portfolio",
-        name: "portfolio",
-        meta: {
-          icon: "picture",
-          title: "m.portfolio"
-        },
-        component: () => import("../views/Portfolio.vue")
+      component: () => import("../views/Timeline.vue")
+    },
+    {
+      path: "/portfolio",
+      name: "portfolio",
+      meta: {
+        icon: "picture",
+        title: "m.portfolio"
       },
-      {
-        path: "/contact",
-        name: "contact",
-        meta: {
-          icon: "mail",
-          title: "m.contact"
-        },
-        component: () => import("../views/Contact.vue")
-      }
-    ]
-  }
-];
+      component: () => import("../views/Portfolio.vue")
+    },
+    {
+      path: "/contact",
+      name: "contact",
+      meta: {
+        icon: "mail",
+        title: "m.contact"
+      },
+      component: () => import("../views/Contact.vue")
+    }
+  ]
+}];
 
 const router = new VueRouter({
   routes
