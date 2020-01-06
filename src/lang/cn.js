@@ -5,6 +5,8 @@ export const m = {
   timeLine: "时间线",
   portfolio: "作品集",
   contact: "联系我",
-  collapse: '收起',
-  expand: '展开'
+  collapse: "收起",
+  expand: "展开",
+  findMe: "找到我",
+  iAmHere: "我在这儿"
 };

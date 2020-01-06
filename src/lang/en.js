@@ -5,6 +5,8 @@ export const m = {
   timeLine: "Timeline",
   portfolio: "Portfolio",
   contact: "Get in touch",
-  collapse: 'Collapse',
-  expand: 'Expand'
+  collapse: "Collapse",
+  expand: "Expand",
+  findMe: "Find me",
+  iAmHere: "I'm here"
 };

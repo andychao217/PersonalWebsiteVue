@@ -1,20 +1,51 @@
+body{
+  font-family: 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+  Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -ms-user-select: none;
+}
+
+html,body{
+  scroll-behavior:smooth;
+}
+
+.ant-layout::-webkit-scrollbar,
+.scrollDiv::-webkit-scrollbar{/*滚动条整体样式*/
+    width: 5px;
+    height: 1px;
+}
+
+.ant-layout::-webkit-scrollbar-thumb,
+.scrollDiv::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: lightgray;
+}
+
+body::-webkit-scrollbar-track,
+.scrollDiv::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: #ededed;
+}
+
 #components-layout-demo-custom-trigger .trigger {
-    font-size: 20px;
-    line-height: 64px;
-    padding: 0 10px;
-    cursor: pointer;
-    transition: color 0.3s;
-  }
+  font-size: 20px;
+  line-height: 64px;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
 
-  #components-layout-demo-custom-trigger .trigger:hover {
-    color: #1890ff;
-  }
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
+}
 
-  #components-layout-demo-custom-trigger .logo {
-    height: 32px;
-    margin: 16px;
-    color: #fff;
-    text-align: center;
-    font-weight: bolder;
-    font-size: 1.5rem;
-  }
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  margin: 16px;
+  color: #fff;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}

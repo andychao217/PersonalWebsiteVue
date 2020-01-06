@@ -10,8 +10,8 @@
         <a-avatar :src="imgUrl" v-if="collapsed" style="margin-top: -15px;" />
         <span v-if="!collapsed">{{logoText}}</span>
       </div>
-      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']" @click="handleChangePage">
-        <a-menu-item v-for="item in menus" :key="item.name">
+      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['about']" @click="handleChangePage">
+        <a-menu-item v-for="item in menus" :key="item.name" :title="item.meta.title">
           <a-icon :type="item.meta.icon" />
           <span>{{$t(item.meta.title)}}</span>
         </a-menu-item>
@@ -41,14 +41,17 @@
       <a-layout-content
         :style="{ 
           margin: '16px', 
-          padding: '24px', 
-          background: '#fff', 
-          minHeight: '280px', 
-          textAlign: 'center'
+          padding: '0px 24px', 
+          minHeight: '400px', 
+          textAlign: 'center',
+          overflowY: 'hidden'
         }"
       >
+        <a-divider orientation="left">{{pageTitle}}</a-divider>
         <transition name="fade" mode="out-in">
-          <router-view />
+          <a-card hoverable style="width: 100%; height: calc(100% - 50px);}">
+            <router-view />
+          </a-card>
         </transition>
       </a-layout-content>
       <a-layout-footer style="background:white; border-top:thin solid lightgray;">
@@ -75,7 +78,8 @@ export default {
       logoText: "ANDY CHAO",
       imgUrl: profilePic,
       isFullscreen: false,
-      menus: null
+      menus: null,
+      pageTitle: ""
     };
   },
   computed: {
@@ -91,6 +95,8 @@ export default {
     },
     handleChangePage(data) {
       this.$router.push(data.key);
+      this.pageTitle = this.$t(data.item.title);
+      console.log(data)
     }
   },
   created() {
@@ -102,6 +108,15 @@ export default {
     this.menus = this.$router.options.routes[0].children;
   },
   mounted() {
+    let _this = this;
+    this.$router.push('about');
+    this.pageTitle = this.$t('m.about');
+    this.contentHeight = this.$util.resizeTable();
+    window.onresize = () => {
+      return (() => {
+        _this.contentHeight = _this.$util.resizeTable();
+      })()
+    }
     //  new Darkmode().showWidget();
   }
 };
