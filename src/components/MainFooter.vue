@@ -42,7 +42,7 @@
       </a-tooltip>
       <a-tooltip placement="top">
         <template slot="title">
-          <span>Tel:+8613548691522</span>
+          <img :src="wxImgUrl" style="width:150px;">
         </template>
         <a>
           <a-icon type="wechat" theme="filled" />
@@ -63,12 +63,14 @@
 </template>
 
 <script>
-  import baianPic from "@/assets/beian.png"
+  import weixinPic from "@/assets/weixin.jpg";
+  import baianPic from "@/assets/beian.png";
   export default {
     name: 'MainFooter',
     data() {
       return {
-        imgUrl: baianPic
+        imgUrl: baianPic,
+        wxImgUrl: weixinPic
       }
     }
   }
