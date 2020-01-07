@@ -56,7 +56,45 @@ const routes = [
   {
     path: '/mobile',
     name: 'mobile',
-    component: () => import("../views/mobile/Home.vue")
+    component: () => import("../views/mobile/Home.vue"),
+    children: [
+      {
+        path: "/aboutMobile",
+        name: "aboutMobile",
+        meta: {
+          icon: "contact",
+          title: "m.about"
+        },
+        component: () => import("../views/mobile/About.vue")
+      },
+      {
+        path: "/timeLineMobile",
+        name: "timeLineMobile",
+        meta: {
+          icon: "description",
+          title: "m.timeLine"
+        },
+        component: () => import("../views/mobile/Timeline.vue")
+      },
+      {
+        path: "/portfolioMobile",
+        name: "portfolioMobile",
+        meta: {
+          icon: "photo-o",
+          title: "m.portfolio"
+        },
+        component: () => import("../views/mobile/Portfolio.vue")
+      },
+      {
+        path: "/contactMobile",
+        name: "contactMobile",
+        meta: {
+          icon: "envelop-o",
+          title: "m.contact"
+        },
+        component: () => import("../views/mobile/Contact.vue")
+      }
+    ]
   }
 ];
 

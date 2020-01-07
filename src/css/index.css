@@ -51,3 +51,7 @@ body::-webkit-scrollbar-track,
   font-weight: bolder;
   font-size: 1.5rem;
 }
+
+.van-dropdown-menu__item {
+  margin-top: 3px;
+}

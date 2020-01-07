@@ -3,10 +3,12 @@ import App from "./App.vue";
 import store from "./store";
 import router from "./router";
 import VueI18n from "vue-i18n";
-import Antd from "ant-design-vue";
 import Bus from './lib/bus';
 import util from './lib/util';
+import Antd from "ant-design-vue";
+import Vant from 'vant';
 import "ant-design-vue/dist/antd.css";
+import 'vant/lib/index.css';
 import "./css/index.css";
 
 Vue.config.productionTip = false;
@@ -14,6 +16,7 @@ Vue.prototype.$bus = Bus;
 Vue.prototype.$util = util;
 Vue.use(VueI18n);
 Vue.use(Antd);
+Vue.use(Vant);
 
 //定义标识符
 const i18n = new VueI18n({
