@@ -100,9 +100,11 @@
       window.onresize = () => {
         return (() => {
           _this.contentHeight = _this.$util.resizeTable();
-        })()
+        })();
+      };
+      if (!this.$util.IsPC()) {
+        this.$router.push('mobile');
       }
-      //  new Darkmode().showWidget();
     }
   };
 

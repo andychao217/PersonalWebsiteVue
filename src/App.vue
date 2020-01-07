@@ -9,6 +9,13 @@
 <script>
   export default {
     name: 'App',
+    mounted () {
+      if (!this.$util.IsPC()) {
+        this.$router.push('mobile');
+      } else {
+        this.$router.push('home');
+      }
+    }
   };
 
 </script>

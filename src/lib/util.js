@@ -96,46 +96,20 @@ export default {
     }
     return arr
   },
-  errorMsg(str) {
-    let res = ''
-    switch (str) {
-      case "UserAuthentication error":
-        res = '用户权限错误'
-        break
-      case "the feild can't be empty":
-        res = '包含空字段'
-        break
-      case 'The password needs to be MD5 32 bits':
-        res = '登录密码需要MD5编码'
-        break
-      case 'SQL execute error':
-        res = 'SQL执行错误'
-        break
-      case 'the user already exists':
-        res = '该用户已存在'
-        break
-      case 'the user not exists,please first added':
-        res = '该用户不存在，请先添加'
-        break
-      case 'the nvr login error:please check user or password':
-        res = 'NVR登录错误，请检查用户名和密码'
-        break
-      case 'the nvr network error:nvr is offline or other network param error':
-        res = 'NVR网络错误: NVR离线或者其他网络参数错误'
-        break
-      case 'the database is not bind':
-        res = '数据库未绑定错误'
-        break
-      case 'the port is error':
-        res = '端口号错误'
-        break
-      case 'the server is unauthorized':
-        res = '服务器未授权错误'
-        break
-      default:
-        res = str
+  IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+      "SymbianOS", "Windows Phone", "MeeGo", "BB10",
+      "iPad", "iPod"
+    ];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
     }
-    return res
+    return flag;
   },
   deepCompare(x, y) {
     console.log(x, y)
