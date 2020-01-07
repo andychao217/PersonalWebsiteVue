@@ -12,5 +12,12 @@ export const m = {
   fullscreen: "全屏",
   fullscreenExit: "退出全屏",
   resumeTxt: "简历",
-  download: "下载"
+  download: "下载",
+  ts905: "嵌入式设备Web",
+  ts900: "音频分析管理平台",
+  xc9000:"广播对讲管理平台",
+  car:"汽车鸣笛抓拍管理平台",
+  prison:"监狱会见系统后台",
+  mini:"微信小程序",
+  qr: "二维码生成工具"
 };

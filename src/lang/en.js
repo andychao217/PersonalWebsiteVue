@@ -12,5 +12,12 @@ export const m = {
   fullscreen: "Fullscreen",
   fullscreenExit: "Exit Fullscreen",
   resumeTxt: "Resume",
-  download: "Download"
+  download: "Download",
+  ts905: "Embedded device",
+  ts900: "Audio analysis management platform",
+  xc9000:"Broadcasting intercom management platform",
+  car:"Car whistle capture management platform",
+  prison:"Backstage of prison interview system",
+  mini:"Wechat applet",
+  qr: "QR code generation tool"
 };
