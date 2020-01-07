@@ -1,11 +1,14 @@
 <template>
-  <div>
+  <div >
     <van-nav-bar :title="titleTxt" style="border-bottom:thin solid lightgray;">
       <img :src="imgUrl" slot="left" style="width:30px; height:30px; border-radius:30px;"/>
       <van-dropdown-menu  slot="right">
         <van-dropdown-item v-model="lang" :options="langOptions" @change="handleChangeLang"/>
       </van-dropdown-menu>
     </van-nav-bar>
+    <div style="text-align:center;overflow:auto;">
+      <router-view />
+    </div>
     <van-tabbar v-model="active" style="border-top:thin solid lightgray;" @change="handleChangePage">
       <van-tabbar-item v-for="item in menus" :key="item.name" :icon="item.meta.icon">
         <span>{{$t(item.meta.title)}}</span>
@@ -17,6 +20,7 @@
 <script>
   import profilePic from "@/assets/profilepic.jpg";
   export default {
+    name: "mobile",
     data() {
       return {
         active: 0,

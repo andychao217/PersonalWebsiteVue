@@ -1,6 +1,6 @@
 <template>
   <div class="scrollDiv"
-    :style="{overflowY:'auto', height: contentHeight - 40 + 'px', minHeight: '400px'}">
+    :style="{overflowY:'auto', height: contentHeight + 'px', minHeight: '400px'}">
     <a-row>
       <baidu-map ak="M4Pb27gO9W9y3e5ciPVXoDFnFdYjHk5O" :center="center" :zoom="zoom"
         :scroll-wheel-zoom="true" @ready="handler" :style="{width:'100%', height: 350 + 'px'}">
@@ -45,6 +45,7 @@
   const BmMarker = () => import("vue-baidu-map/components/overlays/Marker.vue");
   const BmLabel = () => import("vue-baidu-map/components/overlays/Label.vue");
   export default {
+    name: "contact",
     components: {
       BaiduMap,
       BmTraffic,
