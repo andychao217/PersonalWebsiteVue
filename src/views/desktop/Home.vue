@@ -98,6 +98,11 @@
       this.$router.push('about');
       this.contentHeight = this.$util.resizeTable();
       window.onresize = () => {
+        if (window.innerWidth < 938 && _this.collapsed === false) {
+          _this.collapsed = true;
+        } else if (window.innerWidth > 938 && _this.collapsed === true){
+          _this.collapsed = false;
+        }
         return (() => {
           _this.contentHeight = _this.$util.resizeTable();
         })();
