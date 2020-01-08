@@ -1,5 +1,5 @@
 <template>
-  <div class="scrollDiv" :style="{overflowY:'auto', height: contentHeight + 'px', background: 'red'}">
+  <div class="scrollDiv" :style="{height: contentHeight + 'px', background: 'red'}">
     timeline desktop
   </div>
 </template>

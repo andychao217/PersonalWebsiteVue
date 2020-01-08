@@ -1,5 +1,5 @@
 <template>
-  <div class="scrollDiv" :style="{overflowY:'auto', height: contentHeight + 'px', border: 'none'}">
+  <div class="scrollDiv" :style="{height: contentHeight + 'px', border: 'none'}">
     <a-row :gutter="10">
       <a-col v-for="item in gridData" :key="item.name" span="6" style="margin-bottom:10px;">
         <a-popover :title="$t(item.title)">

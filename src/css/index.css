@@ -69,4 +69,8 @@ body::-webkit-scrollbar-track,
 
 .scrollDiv {
   overflow-x: hidden;
+  overflow-y: hidden;
+}
+.scrollDiv:hover {
+  overflow-y: auto;
 }
