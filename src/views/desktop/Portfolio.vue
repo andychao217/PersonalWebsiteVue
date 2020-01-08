@@ -3,7 +3,7 @@
     :style="{overflowY:'auto', height: contentHeight + 'px', border: 'none'}">
     <a-row :gutter="5">
       <a-col :span="8" v-for="item in gridData" :key="item.name" style="margin-bottom:10px;">
-        <a-card hoverable>
+        <a-card hoverable @click.native="handleOpenModal(item)">
           <img
             width="80"
             height="80"
@@ -19,6 +19,23 @@
         </a-card>
       </a-col>
     </a-row>
+    <a-modal v-model="modal.show" :title="modal.title" :footer="null" :width="modalPicWidth" :bodyStyle="{padding: '0', height:'540px'}">
+      <a-carousel arrows>
+        <div
+          slot="prevArrow"
+          class="custom-slick-arrow"
+          style="left: 10px; z-index: 1;"
+        >
+          <a-icon type="left-circle" />
+        </div>
+        <div slot="nextArrow" class="custom-slick-arrow" style="right: 10px">
+          <a-icon type="right-circle" />
+        </div>
+        <div v-for="i in modal.item.length" :key="i">
+          <img :style="{width: modalPicWidth, height: '540px'}" :src="publicPath + 'portfolio/' + modal.item.name + '/' + i + '.png'">
+        </div>
+      </a-carousel>
+    </a-modal>
   </div>
 </template>
 <script>
@@ -29,7 +46,25 @@
       return {
         contentHeight: 690,
         publicPath: process.env.BASE_URL,
-        gridData: null
+        gridData: null,
+        modal: {
+          show: false,
+          title: "",
+          item: {
+            name: "",
+            title: "",
+            lenght: 0
+          }
+        }
+      }
+    },
+    computed: {
+      modalPicWidth () {
+        if (this.modal.item.name === 'mini') {
+          return '300px';
+        } else {
+          return '960px';
+        }
       }
     },
     watch: {
@@ -42,6 +77,15 @@
             that.timer = false;
           }, 400);
         }
+      }
+    },
+    methods: {
+      handleOpenModal (item) {
+        this.modal.title = this.$t(item.title);
+        this.modal.item = item;
+        setTimeout(() => {
+          this.modal.show = true;
+        }, 100);
       }
     },
     mounted() {
@@ -61,3 +105,25 @@
   }
 
 </script>
+<style scoped>
+  /* For demo */
+  .ant-carousel >>> .slick-slide {
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .ant-carousel >>> .custom-slick-arrow {
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+    color: rgb(221, 126, 18);
+    background-color: rgba(31, 45, 61, 0);
+    opacity: 1;
+  }
+  .ant-carousel >>> .custom-slick-arrow:before {
+    display: none;
+  }
+  .ant-carousel >>> .custom-slick-arrow:hover {
+    opacity: 0.5;
+  }
+</style>
