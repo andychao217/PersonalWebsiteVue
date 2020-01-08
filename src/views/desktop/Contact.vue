@@ -3,7 +3,7 @@
     :style="{overflowY:'auto', height: contentHeight + 'px', minHeight: '400px'}">
     <a-row>
       <baidu-map ak="M4Pb27gO9W9y3e5ciPVXoDFnFdYjHk5O" :center="center" :zoom="zoom"
-        :scroll-wheel-zoom="true" @ready="handler" :style="{width:'100%', height: 350 + 'px'}">
+        :scroll-wheel-zoom="true" @ready="handler" :style="{width:'100%', height: 240 + 'px'}">
         <bm-traffic :predictDate="{weekday: 7, hour: 12}">
         </bm-traffic>
         <bm-map-type :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']"
@@ -41,14 +41,14 @@
     </a-row>
     <a-divider orientation="left">{{$t('m.send')}}</a-divider>
     <a-form :form="form">
-      <a-row :gutter="10">
+      <a-row :gutter="5">
         <a-col span="8">
-          <a-row style="margin-bottom:5px;">
+          <a-row>
             <a-form-item :label="$t('m.nameInput')" :label-col="{ span: 8 }" :wrapper-col="{ span: 16 }">
               <a-input v-model="form.name" allowClear/>
             </a-form-item>
           </a-row>
-          <a-row style="margin-bottom:5px;">
+          <a-row>
             <a-form-item :label="$t('m.emailInput')" :label-col="{ span: 8 }" :wrapper-col="{ span: 16 }">
               <a-input type="email" v-model="form.mail" allowClear/>
             </a-form-item>
@@ -61,12 +61,12 @@
         </a-col>
         <a-col span="16">
           <a-form-item :label="$t('m.messageInput')" :label-col="{ span: 3 }" :wrapper-col="{ span: 21 }" style="margin-right:10px;">
-            <a-input type="textarea" v-model="form.message" allowClear :autosize="{ minRows: 8, maxRows: 9 }"/>
+            <a-input type="textarea" v-model="form.message" allowClear style="height:160px;margin-top:4px;"/>
           </a-form-item>
         </a-col>
       </a-row>
       <a-row>
-        <a-form-item style="float:right;margin-right:10px;">
+        <a-form-item style="float:right;margin-right:10px;margin-top:-20px;">
           <a-button type="primary" @click="handleSubmit">
             {{$t('m.submit')}}
           </a-button>

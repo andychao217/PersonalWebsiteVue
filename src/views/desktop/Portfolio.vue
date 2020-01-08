@@ -1,18 +1,19 @@
 <template>
   <div class="scrollDiv" :style="{overflowY:'auto', height: contentHeight + 'px', border: 'none'}">
-    <div v-for="item in gridData" :key="item.name"
-      class="portfolioItem">
-      <a-popover :title="$t(item.title)">
-        <template slot="content">
-          <p>{{$t(item.desc)}}</p>
-        </template>
-        <a-card hoverable @click.native="handleOpenModal(item)">
-          <img width="80" height="80" :src="publicPath + 'portfolio/' + item.name + '.svg'"
-              slot="cover" style="margin-top:10px;padding:10px;" />
-          <a-card-meta :title="$t(item.title)"></a-card-meta>
-        </a-card>
-      </a-popover>
-    </div>
+    <a-row :gutter="10">
+      <a-col v-for="item in gridData" :key="item.name" span="6" style="margin-bottom:10px;">
+        <a-popover :title="$t(item.title)">
+          <template slot="content">
+            <p>{{$t(item.desc)}}</p>
+          </template>
+          <a-card hoverable @click.native="handleOpenModal(item)">
+            <img width="80" height="80" :src="publicPath + 'portfolio/' + item.name + '.svg'"
+                slot="cover" style="margin-top:10px;padding:10px;" />
+            <a-card-meta :title="$t(item.title)"></a-card-meta>
+          </a-card>
+        </a-popover>
+      </a-col>
+    </a-row>
     <a-modal v-model="modal.show" :title="modal.title" :footer="null" :width="modalPicWidth"
       :bodyStyle="{padding: '0', height:'540px'}">
       <a-carousel arrows>
