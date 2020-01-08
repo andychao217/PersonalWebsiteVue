@@ -1,5 +1,5 @@
 <template>
-  <div class="scrollDiv" :style="{overflowY:'auto', height: contentHeight + 135 + 'px', background: 'red'}">
+  <div class="scrollDiv" :style="{overflowY:'auto', height: contentHeight + 133 + 'px', background: 'red'}">
       timeline mobile
   </div>
 </template>

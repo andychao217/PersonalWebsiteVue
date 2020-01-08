@@ -1,7 +1,7 @@
 <template>
   <div class="scrollDiv"
-    :style="{overflowY:'auto', height: contentHeight + 135 + 'px', minHeight: '400px'}">
-    <a-row>
+    :style="{overflowY:'auto', height: contentHeight + 133 + 'px', minHeight: '400px'}">
+    <van-row>
       <baidu-map ak="M4Pb27gO9W9y3e5ciPVXoDFnFdYjHk5O" :center="center" :zoom="zoom"
         :scroll-wheel-zoom="true" @ready="handler" :style="{width:'100%', height: 350 + 'px'}">
         <bm-traffic :predictDate="{weekday: 7, hour: 12}">
@@ -29,13 +29,41 @@
             }" />
         </bm-marker>
       </baidu-map>
-    </a-row>
-    <a-row style="margin-top:10px;">
-
-    </a-row>
+    </van-row>
+    <van-divider content-position="left">{{$t('m.contactTitle')}}</van-divider>
+    <van-row>
+      <van-row>
+        <van-col :span="12">
+          <van-icon name="envelop-o" /><a href="mailto:andychao217@qq.com"> andychao217@qq.com</a>
+        </van-col>
+        <van-col :span="12">
+          <van-icon name="phone-o" /><a href="tel:13548691522"> (+86)135-4869-1522</a>
+        </van-col>
+      </van-row>
+    </van-row>
+    <van-divider content-position="left">{{$t('m.send')}}</van-divider>
+    <van-row>
+      <van-cell-group>
+        <van-field v-model="form.name" required clearable clickable left-icon="contact"
+          label-align="left" :label="$t('m.nameInput')" />
+        <van-field v-model="form.mail" type="email" required left-icon="envelop-o" clearable
+          clickable label-align="left" :label="$t('m.emailInput')" />
+        <van-field v-model="form.subject" required clearable clickable left-icon="comment-o"
+          label-align="left" :label="$t('m.subjectInput')" />
+        <van-field v-model="form.message" rows="5" autosize required clearable clickable
+          left-icon="description" label-align="left" :label="$t('m.messageInput')" type="textarea"
+          maxlength="60" show-word-limit />
+      </van-cell-group>
+    </van-row>
+    <van-row>
+      <van-button type="primary" @click="handleSubmit" block>{{$t('m.submit')}}</van-button>
+    </van-row>
   </div>
 </template>
 <script>
+  import Vue from 'vue';
+  import { Toast } from 'vant';
+  Vue.use(Toast);
   const BaiduMap = () => import("vue-baidu-map/components/map/Map.vue");
   const BmTraffic = () => import("vue-baidu-map/components/layers/Traffic.vue");
   const BmMapType = () => import("vue-baidu-map/components/controls/MapType.vue");
@@ -62,7 +90,13 @@
           lat: 0
         },
         zoom: 3,
-        contentHeight: 690
+        contentHeight: 690,
+        form: {
+          name: "",
+          mail: "",
+          subject: "",
+          message: ""
+        }
       }
     },
     computed: {
@@ -101,6 +135,16 @@
           lat: 28.213
         };
         this.zoom = 15;
+      },
+      handleSubmit() {
+        if (
+          this.form.name === "" || 
+          this.form.mail === "" || 
+          this.form.subject === "" || 
+          this.form.message === ""
+        ) {
+          Toast.fail(this.$t('m.errorMessage'));
+        }
       }
     },
     mounted() {

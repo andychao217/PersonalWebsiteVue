@@ -1,6 +1,6 @@
 <template>
   <div class="scrollDiv"
-    :style="{overflowY:'auto', height: contentHeight + 135 + 'px', background: 'whitesmoke', padding: '10px'}">
+    :style="{overflowY:'auto', height: contentHeight + 133 + 'px', background: 'whitesmoke', padding: '10px'}">
     <van-card
       v-for="item in gridData" 
       :key="item.name"

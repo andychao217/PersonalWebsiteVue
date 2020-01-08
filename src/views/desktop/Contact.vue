@@ -30,9 +30,49 @@
         </bm-marker>
       </baidu-map>
     </a-row>
-    <a-row style="margin-top:10px;">
-
+    <a-divider orientation="left">{{$t('m.contactTitle')}}</a-divider>
+    <a-row style="margin-top:10px;text-align:left;">
+      <a-row>
+        <span>{{$t('m.mailMe')}}</span><a href="mailto:andychao217@qq.com">andychao217@qq.com</a>
+      </a-row>
+      <a-row>
+        <span>{{$t('m.phoneNum')}}</span><a href="tel:13548691522"> (+86)135-4869-1522</a>
+      </a-row>
     </a-row>
+    <a-divider orientation="left">{{$t('m.send')}}</a-divider>
+    <a-form :form="form">
+      <a-row :gutter="10">
+        <a-col span="8">
+          <a-row style="margin-bottom:5px;">
+            <a-form-item :label="$t('m.nameInput')" :label-col="{ span: 8 }" :wrapper-col="{ span: 16 }">
+              <a-input v-model="form.name" allowClear/>
+            </a-form-item>
+          </a-row>
+          <a-row style="margin-bottom:5px;">
+            <a-form-item :label="$t('m.emailInput')" :label-col="{ span: 8 }" :wrapper-col="{ span: 16 }">
+              <a-input type="email" v-model="form.mail" allowClear/>
+            </a-form-item>
+          </a-row>
+          <a-row>
+            <a-form-item :label="$t('m.subjectInput')" :label-col="{ span: 8 }" :wrapper-col="{ span: 16 }">
+              <a-input v-model="form.subject" allowClear/>
+            </a-form-item>
+          </a-row>
+        </a-col>
+        <a-col span="16">
+          <a-form-item :label="$t('m.messageInput')" :label-col="{ span: 3 }" :wrapper-col="{ span: 21 }" style="margin-right:10px;">
+            <a-input type="textarea" v-model="form.message" allowClear :autosize="{ minRows: 8, maxRows: 9 }"/>
+          </a-form-item>
+        </a-col>
+      </a-row>
+      <a-row>
+        <a-form-item style="float:right;margin-right:10px;">
+          <a-button type="primary" @click="handleSubmit">
+            {{$t('m.submit')}}
+          </a-button>
+        </a-form-item>
+      </a-row>
+    </a-form>
   </div>
 </template>
 <script>
@@ -63,7 +103,13 @@
           lat: 0
         },
         zoom: 3,
-        contentHeight: 690
+        contentHeight: 690,
+        form: {
+          name: "",
+          mail: "",
+          subject: "",
+          message: ""
+        }
       }
     },
     computed: {
@@ -102,6 +148,19 @@
           lat: 28.213
         };
         this.zoom = 15;
+      },
+      handleSubmit () {
+        if (
+          this.form.name === "" || 
+          this.form.mail === "" || 
+          this.form.subject === "" || 
+          this.form.message === ""
+        ) {
+          this.$error({
+            title: this.$t('m.error'),
+            content: this.$t('m.errorMessage')
+          });
+        }
       }
     },
     mounted() {
