@@ -1,7 +1,9 @@
 <template>
   <div >
     <van-nav-bar :title="titleTxt" style="border-bottom:thin solid lightgray;">
-      <img :src="imgUrl" slot="left" style="width:30px; height:30px; border-radius:30px;"/>
+      <a :href="resumeLink" target="_blank" slot="left">
+        <img :src="imgUrl" style="width:30px; height:30px; border-radius:30px;"/>
+      </a>
       <van-dropdown-menu  slot="right">
         <van-dropdown-item v-model="lang" :options="langOptions" @change="handleChangeLang"/>
       </van-dropdown-menu>
@@ -26,12 +28,23 @@
         active: 0,
         menus: null,
         titleTxt: "",
+        publicPath: process.env.BASE_URL,
         imgUrl: profilePic,
         lang: 'zh-CN',
         langOptions: [
           { text: '中', value: 'zh-CN' },
           { text: 'En', value: 'en-US' }
         ]
+      }
+    },
+    computed: {
+      resumeLink() {
+        let lang = this.lang
+        if (lang === 'zh-CN') {
+          return this.publicPath + '赵庆简历.pdf';
+        } else {
+          return this.publicPath + 'AndyChaoResume.pdf';
+        }
       }
     },
     methods: {

@@ -1,26 +1,55 @@
 <template>
   <div class="scrollDiv"
-    :style="{overflowY:'auto', height: contentHeight + 135 + 'px', background: 'whitesmoke', padding: '10px 0px'}">
-    <van-grid :column-num="2" :gutter="10">
+    :style="{overflowY:'auto', height: contentHeight + 135 + 'px', background: 'whitesmoke', padding: '10px'}">
+    <van-card
+      v-for="item in gridData" 
+      :key="item.name"
+      @click.native="handleOpenModal(item)"
+      :thumb="publicPath + 'portfolio/' + item.name + '.svg'"
+      :desc="$t(item.desc)"
+      :title="$t(item.title)"
+      style="text-align:left;background:white"
+    >
+    </van-card>
+    <!-- <van-grid :column-num="2" :gutter="10">
       <van-grid-item
         v-for="item in gridData" 
         :key="item.name"
+        @click.native="handleOpenModal(item)"
       >
         <van-image width="50px" height="50px" :src="publicPath + 'portfolio/' + item.name + '.svg'" />
-        <span style="margin-top:10px;">{{$t(item.title)}}</span>
+        <div class="van-multi-ellipsis--l2" style="margin-top:10px; font-size:12px;">{{$t(item.title)}}</div>
       </van-grid-item>
-    </van-grid>
+    </van-grid> -->
+    <van-image-preview
+      v-model="modal.show"
+      :images="modal.images"
+      @change="onChangeImages"
+      show-indicators
+    >
+      <template v-slot:cover style="color:red">4352542542</template>
+      <template v-slot:index>{{ modal.index + 1 }}/{{modal.images.length}}</template>
+    </van-image-preview>
   </div>
 </template>
 <script>
   import portfolioData from "@/lib/portfolioData.js";
+  import Vue from 'vue';
+  import { ImagePreview } from 'vant';
+  Vue.use(ImagePreview);
+
   export default {
     name: "portfolioMobile",
     data() {
       return {
         contentHeight: 690,
         publicPath: process.env.BASE_URL,
-        gridData: null
+        gridData: null,
+        modal: {
+          index: 0,
+          show: false,
+          images: []
+        }
       }
     },
     watch: {
@@ -33,6 +62,20 @@
             that.timer = false;
           }, 400);
         }
+      }
+    },
+    methods: {
+      handleOpenModal (item) {
+        console.log(item);
+        let imageArray = [];
+        for (let i=0; i<item.length; i++) {
+          imageArray[i] = this.publicPath + 'portfolio/' + item.name + '/' + (i+1) + '.png'
+        }
+        this.modal.images = imageArray;
+        this.modal.show = true;
+      },
+      onChangeImages (index) {
+        this.modal.index = index;
       }
     },
     mounted() {
@@ -52,3 +95,8 @@
   }
 
 </script>
+<style lang="css">
+.van-image {
+  padding:15px;
+}
+</style>

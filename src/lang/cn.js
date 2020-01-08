@@ -19,5 +19,12 @@ export const m = {
   car:"汽车鸣笛抓拍管理平台",
   prison:"监狱会见系统后台",
   mini:"微信小程序",
-  qr: "二维码生成工具"
+  qr: "二维码生成工具",
+  ts905desc: "嵌入式设备Web 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  ts900desc: "音频分析管理平台 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  xc9000desc:"广播对讲管理平台 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  cardesc:"汽车鸣笛抓拍管理平台 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  prisondesc:"监狱会见系统后台 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  minidesc:"微信小程序 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  qrdesc: "二维码生成工具 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag"
 };

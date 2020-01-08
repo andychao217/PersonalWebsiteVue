@@ -19,5 +19,12 @@ export const m = {
   car:"Car whistle capture management platform",
   prison:"Backstage of prison interview system",
   mini:"Wechat applet",
-  qr: "QR code generation tool"
+  qr: "QR code generation tool",
+  ts905desc: "Embedded device 11sdfafdasgdgasdgfagfdagafdgadgfdagv",
+  ts900desc: "Audio analysis management platform 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  xc9000desc:"Broadcasting intercom management platform 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  cardesc:"Car whistle capture management platform 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  prisondesc:"Backstage of prison interview system 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  minidesc:"Wechat applet 1sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  qrdesc: "QR code generation tool 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag"
 };

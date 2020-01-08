@@ -24,10 +24,10 @@
             <a-icon class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'"
               @click="controlSidebar" />
           </a-tooltip>
-          <span style="font-size:20px;">{{$t('m.hello')}}</span>
+          <a-avatar :src="imgUrl" v-if="!collapsed" style="margin-top: -8px; margin-right:5px;" />
         </div>
         <div style="float:right">
-          <HeaderToolbar v-model="isFullscreen"></HeaderToolbar>
+          <HeaderToolbar v-model="isFullscreen" style="margin-top:-3px;"></HeaderToolbar>
         </div>
       </a-layout-header>
       <a-layout-content :style="{ 
