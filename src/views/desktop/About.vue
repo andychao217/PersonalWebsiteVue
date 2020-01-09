@@ -12,6 +12,52 @@
         </div>
       </a-carousel>
     </a-row>
+    <a-divider orientation="left">{{$t('m.personalInfo')}}</a-divider>
+    <a-row>
+      <a-form :form="form">
+        <a-row :gutter="10">
+          <a-col span="12">
+            <a-row>
+              <a-form-item :label="$t('m.nameInput')" :label-col="{ span: 8 }"
+                :wrapper-col="{ span: 16 }">
+                <a-input v-model="form.name" readOnly />
+              </a-form-item>
+            </a-row>
+          </a-col>
+          <a-col span="12">
+            <a-row>
+              <a-form-item :label="$t('m.emailInput')" :label-col="{ span: 8 }"
+                :wrapper-col="{ span: 16 }">
+                <a-input type="email" v-model="form.mail" readOnly />
+              </a-form-item>
+            </a-row>
+          </a-col>
+        </a-row>
+        <a-row :gutter="10">
+          <a-col span="12">
+            <a-row>
+              <a-form-item :label="$t('m.phoneInput')" :label-col="{ span: 8 }"
+                :wrapper-col="{ span: 16 }">
+                <a-input v-model="form.phone" readOnly />
+              </a-form-item>
+            </a-row>
+          </a-col>
+          <a-col span="12">
+            <a-form-item :label="$t('m.websiteInput')" :label-col="{ span: 8 }"
+              :wrapper-col="{ span: 16 }">
+              <a-input v-model="form.website" readOnly/>
+            </a-form-item>
+          </a-col>
+        </a-row>
+      </a-form>
+    </a-row>
+    <a-row>
+      <a :href="resumeLink" target="_blank" style="color:white; text-decoration:none;float:right;">
+        <a-button type="primary" icon="download">
+          <span> {{$t('m.resumeTxt')}}</span>
+        </a-button>
+      </a>
+    </a-row>
   </div>
 </template>
 <script>
@@ -20,7 +66,24 @@
     name: "about",
     data() {
       return {
-        contentHeight: 690
+        contentHeight: 690,
+        form: {
+          name: "赵庆",
+          mail: "andychao217@qq.com",
+          phone: "(+86)13548691522",
+          website: "https://www.andychao217.cn"
+        },
+        publicPath: process.env.BASE_URL
+      }
+    },
+    computed: {
+      resumeLink() {
+        let lang = localStorage.lang;
+        if (lang === 'zh-CN') {
+          return this.publicPath + '赵庆简历.pdf';
+        } else {
+          return this.publicPath + 'AndyChaoResume.pdf';
+        }
       }
     },
     watch: {

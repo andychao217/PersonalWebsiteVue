@@ -54,6 +54,7 @@
         localStorage.lang = this.lang;
         document.title = this.$t("m.windowTitle");
         this.handleChangePage(this.active);
+        this.$router.go(0);
       },
       handleChangePage (index) {
         this.active = index;

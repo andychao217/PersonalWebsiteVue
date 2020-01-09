@@ -91,6 +91,7 @@
         this.$i18n.locale = this.lang;
         localStorage.lang = this.lang;
         document.title = this.$t("m.windowTitle");
+        this.$router.go(0);
       }
     },
     created() {

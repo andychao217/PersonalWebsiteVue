@@ -3,7 +3,7 @@
     :style="{overflowY:'auto', height: contentHeight + 133 + 'px', minHeight: '400px', padding: '10px'}">
     <van-row>
       <baidu-map ak="M4Pb27gO9W9y3e5ciPVXoDFnFdYjHk5O" :center="center" :zoom="zoom"
-        :scroll-wheel-zoom="true" @ready="handler" :style="{width:'100%', height: 350 + 'px'}">
+        :scroll-wheel-zoom="true" @ready="handler" :style="{width:'100%', height: 200 + 'px'}">
         <bm-traffic :predictDate="{weekday: 7, hour: 12}">
         </bm-traffic>
         <bm-map-type :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']"
@@ -11,7 +11,7 @@
         </bm-map-type>
         <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT" style="margin-top:20px;">
         </bm-navigation>
-        <bm-overview-map anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :isOpen="true">
+        <bm-overview-map anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :isOpen="false">
         </bm-overview-map>
         <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_LEFT" :showAddressBar="true"
           :autoLocation="true">
