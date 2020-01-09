@@ -81,6 +81,9 @@
 </template>
 <script>
   import Bus from '@/lib/bus';
+  import {
+    sendMail
+  } from '@/api/sendMail';
   const BaiduMap = () => import("vue-baidu-map/components/map/Map.vue");
   const BmTraffic = () => import("vue-baidu-map/components/layers/Traffic.vue");
   const BmMapType = () => import("vue-baidu-map/components/controls/MapType.vue");
@@ -155,6 +158,7 @@
         this.zoom = 15;
       },
       handleSubmit() {
+        let _this = this;
         if (
           this.form.name === "" ||
           this.form.mail === "" ||
@@ -164,6 +168,13 @@
           this.$error({
             title: this.$t('m.error'),
             content: this.$t('m.errorMessage')
+          });
+        } else {
+          sendMail(_this.form.name, _this.form.mail, _this.form.subject, _this.form.message).then(
+            response => {
+              console.log(response);
+            }).catch(response => {
+              console.log(response);
           });
         }
       }
