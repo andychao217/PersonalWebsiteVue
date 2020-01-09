@@ -95,7 +95,6 @@
     },
     mounted() {
       let _this = this;
-      this.$router.push('about');
       this.contentHeight = this.$util.resizeTable();
       window.onresize = () => {
         if (window.innerWidth < 938 && _this.collapsed === false) {
@@ -107,9 +106,6 @@
           _this.contentHeight = _this.$util.resizeTable();
         })();
       };
-      if (!this.$util.IsPC()) {
-        this.$router.push('mobile');
-      }
     }
   };
 

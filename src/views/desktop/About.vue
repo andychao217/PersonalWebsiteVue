@@ -1,14 +1,14 @@
 <template>
   <div class="scrollDiv" :style="{height: contentHeight + 'px'}">
     <a-row>
-      <a-carousel autoplay>
-        <div>
-          <h3>{{$t('m.lifeMottoJobs')}}</h3>
-          <h1>-{{$t('m.jobs')}}</h1>
+      <a-carousel autoplay vertical>
+        <div style="margin-top:20px;">
+          <h1>{{$t('m.lifeMottoJobs1')}}</h1>
+          <h3>-{{$t('m.jobs')}}</h3>
         </div>
         <div>
-          <h3>{{$t('m.lifeMottoGump')}}</h3>
-          <h1>-{{$t('m.gump')}}</h1>
+          <h1>{{$t('m.lifeMottoGump')}}</h1>
+          <h3>-{{$t('m.gump')}}</h3>
         </div>
       </a-carousel>
     </a-row>
@@ -52,16 +52,24 @@ export default {
 <style scoped>
   /* For demo */
   .ant-carousel >>> .slick-slide {
-    padding: 80px;
+    padding: 40px 150px;
     text-align: center;
-    height: 280px;
-    background-image: url('../../assets/bg.jpg');
+    border-radius: 5px;
+    height: 200px;
+    background-image: url('../../assets/bg1.jpg');
     background-repeat:no-repeat;
     background-position:center;
     overflow: hidden;
   }
 
-  .ant-carousel >>> .slick-slide h3 {
-    color: rgb(235, 28, 97);
+  .ant-carousel >>> .slick-slide:nth-child(odd){
+    background-image: url('../../assets/bg2.jpg');
+  }
+
+
+  .ant-carousel >>> .slick-slide h3,
+  .ant-carousel >>> .slick-slide h1 {
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
   }
 </style>

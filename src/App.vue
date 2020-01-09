@@ -9,11 +9,11 @@
 <script>
   export default {
     name: 'App',
-    mounted () {
+    created () {
       if (!this.$util.IsPC()) {
-        this.$router.push('mobile');
+        this.$router.push('aboutMobile');
       } else {
-        this.$router.push('home');
+        this.$router.push('about');
       }
     }
   };

@@ -25,6 +25,7 @@ export const m = {
   errorMessage: "Enter full information",
   error: "Error",
   messageSent: "The message has been sent successfully, thank you! ",
+  lifeMottoJobs1: "Stay Hungry, Stay Foolish",
   lifeMottoJobs: "Here's to the crazy ones: the misfits, the rebels, the troublemakers, the round pegs in the square holes, the ones who see things differently. They are not fond of rules. They have no respect of status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do, is ignore them, because they change things. They push human race forward. Some may see them as the crazy ones. We see genius，because the people who are crazy enough to think they can change the world....are the ones who do.",
   lifeMottoGump: "Life is like a box of chocalates, you never know what you gonna get.",
   jobs: "Steve Jobs",
