@@ -160,14 +160,14 @@
       handleSubmit() {
         let _this = this;
         if (
-          this.form.name === "" ||
-          this.form.mail === "" ||
-          this.form.subject === "" ||
-          this.form.message === ""
+          _this.form.name === "" ||
+          _this.form.mail === "" ||
+          _this.form.subject === "" ||
+          _this.form.message === ""
         ) {
-          this.$error({
-            title: this.$t('m.error'),
-            content: this.$t('m.errorMessage')
+          _this.$error({
+            title: _this.$t('m.error'),
+            content: _this.$t('m.errorMessage')
           });
         } else {
           sendMail(_this.form.name, _this.form.mail, _this.form.subject, _this.form.message).then(

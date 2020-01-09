@@ -63,6 +63,9 @@
 <script>
   import Vue from 'vue';
   import { Toast } from 'vant';
+  import {
+    sendMail
+  } from '@/api/sendMail';
   Vue.use(Toast);
   const BaiduMap = () => import("vue-baidu-map/components/map/Map.vue");
   const BmTraffic = () => import("vue-baidu-map/components/layers/Traffic.vue");
@@ -137,13 +140,21 @@
         this.zoom = 15;
       },
       handleSubmit() {
+        let _this = this;
         if (
-          this.form.name === "" || 
-          this.form.mail === "" || 
-          this.form.subject === "" || 
-          this.form.message === ""
+          _this.form.name === "" || 
+          _this.form.mail === "" || 
+          _this.form.subject === "" || 
+          _this.form.message === ""
         ) {
-          Toast.fail(this.$t('m.errorMessage'));
+          Toast.fail(_this.$t('m.errorMessage'));
+        } else {
+          sendMail(_this.form.name, _this.form.mail, _this.form.subject, _this.form.message).then(
+            response => {
+              console.log(response);
+            }).catch(response => {
+              console.log(response);
+          });
         }
       }
     },
