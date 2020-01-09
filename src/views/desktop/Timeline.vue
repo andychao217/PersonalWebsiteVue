@@ -4,37 +4,44 @@
   </div>
 </template>
 <script>
-export default {
-  name: "timeline",
-  data () {
-    return {
-      contentHeight: 690
-    }
-  },
-  watch: {
-    contentHeight(val) {
-      if (!this.timer) {
-        this.contentHeight = val;
-        this.timer = true;
-        let that = this;
-        setTimeout(function () {
-          that.timer = false;
-        }, 400);
+  import Bus from '@/lib/bus';
+  export default {
+    name: "timeline",
+    data() {
+      return {
+        contentHeight: 690
       }
+    },
+    watch: {
+      contentHeight(val) {
+        if (!this.timer) {
+          this.contentHeight = val;
+          this.timer = true;
+          let that = this;
+          setTimeout(function () {
+            that.timer = false;
+          }, 400);
+        }
+      }
+    },
+    mounted() {
+      let _this = this;
+      this.contentHeight = this.$util.resizeTable();
+      window.onresize = () => {
+        if (window.innerWidth < 938) {
+          Bus.$emit('handleSidebarControl', true);
+        } else if (window.innerWidth) {
+          Bus.$emit('handleSidebarControl', false);
+        }
+        return (() => {
+          _this.contentHeight = _this.$util.resizeTable();
+        })()
+      }
+    },
+    beforeRouteLeave(to, from, next) {
+      this.$destroy();
+      next();
     }
-  },
-  mounted() {
-    let _this = this;
-    this.contentHeight = this.$util.resizeTable();
-    window.onresize = () => {
-      return (() => {
-        _this.contentHeight = _this.$util.resizeTable();
-      })()
-    }
-  },
-  beforeRouteLeave(to, from, next) {
-    this.$destroy();
-    next();
   }
-}
+
 </script>

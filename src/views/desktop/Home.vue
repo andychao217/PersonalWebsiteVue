@@ -6,7 +6,8 @@
         <a-avatar :src="imgUrl" v-if="collapsed" style="margin-top: -15px;" />
         <span v-if="!collapsed">{{logoText}}</span>
       </div>
-      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['about']" @click="handleChangePage" :inlineCollapsed="collapsed">
+      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['about']" @click="handleChangePage"
+        :inlineCollapsed="collapsed">
         <a-menu-item v-for="item in menus" :key="item.name" :title="$t(item.meta.title)">
           <a-icon :type="item.meta.icon" />
           <span>{{$t(item.meta.title)}}</span>
@@ -50,6 +51,7 @@
   </a-layout>
 </template>
 <script>
+  import Bus from '@/lib/bus';
   const MainFooter = () => import("@/components/MainFooter.vue");
   const HeaderToolbar = () => import("@/components/HeaderToolbar.vue");
   import profilePic from "@/assets/profilepic.jpg";
@@ -99,13 +101,16 @@
       window.onresize = () => {
         if (window.innerWidth < 938 && _this.collapsed === false) {
           _this.collapsed = true;
-        } else if (window.innerWidth > 938 && _this.collapsed === true){
+        } else if (window.innerWidth > 938 && _this.collapsed === true) {
           _this.collapsed = false;
         }
         return (() => {
           _this.contentHeight = _this.$util.resizeTable();
         })();
       };
+      Bus.$on('handleSidebarControl', (val) => {
+        this.collapsed = val;
+      });
     }
   };
 

@@ -1,6 +1,5 @@
 <template>
-  <div class="scrollDiv"
-    :style="{height: contentHeight + 'px', minHeight: '400px'}">
+  <div class="scrollDiv" :style="{height: contentHeight + 'px', minHeight: '400px'}">
     <a-row>
       <baidu-map ak="M4Pb27gO9W9y3e5ciPVXoDFnFdYjHk5O" :center="center" :zoom="zoom"
         :scroll-wheel-zoom="true" @ready="handler" :style="{width:'100%', height: 240 + 'px'}">
@@ -44,24 +43,29 @@
       <a-row :gutter="5">
         <a-col span="8">
           <a-row>
-            <a-form-item :label="$t('m.nameInput')" :label-col="{ span: 8 }" :wrapper-col="{ span: 16 }">
-              <a-input v-model="form.name" allowClear/>
+            <a-form-item :label="$t('m.nameInput')" :label-col="{ span: 8 }"
+              :wrapper-col="{ span: 16 }">
+              <a-input v-model="form.name" allowClear />
             </a-form-item>
           </a-row>
           <a-row>
-            <a-form-item :label="$t('m.emailInput')" :label-col="{ span: 8 }" :wrapper-col="{ span: 16 }">
-              <a-input type="email" v-model="form.mail" allowClear/>
+            <a-form-item :label="$t('m.emailInput')" :label-col="{ span: 8 }"
+              :wrapper-col="{ span: 16 }">
+              <a-input type="email" v-model="form.mail" allowClear />
             </a-form-item>
           </a-row>
           <a-row>
-            <a-form-item :label="$t('m.subjectInput')" :label-col="{ span: 8 }" :wrapper-col="{ span: 16 }">
-              <a-input v-model="form.subject" allowClear/>
+            <a-form-item :label="$t('m.subjectInput')" :label-col="{ span: 8 }"
+              :wrapper-col="{ span: 16 }">
+              <a-input v-model="form.subject" allowClear />
             </a-form-item>
           </a-row>
         </a-col>
         <a-col span="16">
-          <a-form-item :label="$t('m.messageInput')" :label-col="{ span: 3 }" :wrapper-col="{ span: 21 }" style="margin-right:10px;">
-            <a-input type="textarea" v-model="form.message" allowClear style="height:160px;margin-top:4px;"/>
+          <a-form-item :label="$t('m.messageInput')" :label-col="{ span: 3 }"
+            :wrapper-col="{ span: 21 }" style="margin-right:10px;">
+            <a-input type="textarea" v-model="form.message" allowClear
+              style="height:160px;margin-top:4px;" />
           </a-form-item>
         </a-col>
       </a-row>
@@ -76,6 +80,7 @@
   </div>
 </template>
 <script>
+  import Bus from '@/lib/bus';
   const BaiduMap = () => import("vue-baidu-map/components/map/Map.vue");
   const BmTraffic = () => import("vue-baidu-map/components/layers/Traffic.vue");
   const BmMapType = () => import("vue-baidu-map/components/controls/MapType.vue");
@@ -149,11 +154,11 @@
         };
         this.zoom = 15;
       },
-      handleSubmit () {
+      handleSubmit() {
         if (
-          this.form.name === "" || 
-          this.form.mail === "" || 
-          this.form.subject === "" || 
+          this.form.name === "" ||
+          this.form.mail === "" ||
+          this.form.subject === "" ||
           this.form.message === ""
         ) {
           this.$error({
@@ -167,6 +172,11 @@
       let _this = this;
       this.contentHeight = this.$util.resizeTable();
       window.onresize = () => {
+        if (window.innerWidth < 938) {
+          Bus.$emit('handleSidebarControl', true);
+        } else if (window.innerWidth) {
+          Bus.$emit('handleSidebarControl', false);
+        }
         return (() => {
           _this.contentHeight = _this.$util.resizeTable();
         })()

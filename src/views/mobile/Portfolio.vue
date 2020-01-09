@@ -10,6 +10,11 @@
       :title="$t(item.title)"
       style="text-align:left;background:white"
     >
+      <div slot="tags">
+        <van-tag plain type="primary" v-for="tag in item.tags" :key="tag" style="margin:0px 2px 2px 0px;">
+          {{tag}}
+        </van-tag>
+      </div>
     </van-card>
     <!-- <van-grid :column-num="2" :gutter="10">
       <van-grid-item
