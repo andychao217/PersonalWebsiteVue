@@ -70,7 +70,9 @@ body::-webkit-scrollbar-track,
 .scrollDiv {
   overflow-x: hidden;
   overflow-y: hidden;
+  padding-right:0px;
 }
 .scrollDiv:hover {
   overflow-y: auto;
+  padding-right:10px;
 }

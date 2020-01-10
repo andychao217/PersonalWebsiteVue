@@ -25,7 +25,13 @@
           </div>
         </van-swipe-item>
       </van-swipe>
-      <van-divider content-position="left">{{$t('m.personalInfo')}}</van-divider>
+      <van-row>
+        <div style="padding:0px 20px;">
+          <van-divider content-position="left">{{$t('m.ability')}}</van-divider>
+          <Charts style="margin-top:-40px;"></Charts>
+        </div>
+      </van-row>
+      <van-divider content-position="left" style="margin-top:-50px;z-index:999">{{$t('m.personalInfo')}}</van-divider>
       <van-row>
         <van-cell-group>
           <van-field v-model="form.name" readonly clickable left-icon="contact" label-align="left"
@@ -38,7 +44,7 @@
             label-align="left" :label="$t('m.websiteInput')" />
         </van-cell-group>
       </van-row>
-      <van-row style="margin-top:10px;padding:0px 16px;">
+      <van-row style="margin-top:10px;padding:10px 16px;">
         <a :href="resumeLink" target="_blank" style="color:white; text-decoration:none;">
           <van-button icon="down" type="info" block>
             <span> {{$t('m.resumeTxt')}}</span>
@@ -51,8 +57,12 @@
 <script>
   import bgPic1 from "@/assets/bg1.jpg";
   import bgPic2 from "@/assets/bg2.jpg";
+  const Charts = () => import("@/components/Charts.vue");
   export default {
     name: "aboutMobile",
+    components: {
+      Charts
+    },
     data() {
       return {
         contentHeight: 690,

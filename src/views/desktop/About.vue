@@ -13,47 +13,60 @@
         </div>
       </a-carousel>
     </a-row>
-  
-    <a-divider orientation="left">{{$t('m.personalInfo')}}</a-divider>
-    <a-row>
-      <a-form :form="form">
-        <a-row :gutter="10">
-          <a-col span="12">
-            <a-row>
-              <a-form-item :label="$t('m.nameInput')" :label-col="{ span: 8 }"
-                :wrapper-col="{ span: 16 }">
-                <a-input v-model="form.name" readOnly />
-              </a-form-item>
-            </a-row>
-          </a-col>
-          <a-col span="12">
-            <a-row>
-              <a-form-item :label="$t('m.emailInput')" :label-col="{ span: 8 }"
-                :wrapper-col="{ span: 16 }">
-                <a-input type="email" v-model="form.mail" readOnly />
-              </a-form-item>
-            </a-row>
-          </a-col>
-        </a-row>
-        <a-row :gutter="10">
-          <a-col span="12">
-            <a-row>
-              <a-form-item :label="$t('m.phoneInput')" :label-col="{ span: 8 }"
-                :wrapper-col="{ span: 16 }">
-                <a-input v-model="form.phone" readOnly />
-              </a-form-item>
-            </a-row>
-          </a-col>
-          <a-col span="12">
-            <a-form-item :label="$t('m.websiteInput')" :label-col="{ span: 8 }"
-              :wrapper-col="{ span: 16 }">
-              <a-input v-model="form.website" readOnly/>
-            </a-form-item>
-          </a-col>
-        </a-row>
-      </a-form>
+    <a-row :gutter="10" style="margin-top:10px;">
+      <a-col span="14">
+
+      </a-col>
+      <a-col span="10" style="padding:20px;background:whitesmoke;border-radius:5px;">
+        <h3 style="text-align:left;">{{$t('m.ability')}}</h3>
+        <Charts style="margin-top:-35px;"></Charts>
+      </a-col>
     </a-row>
-    <a-row>
+    <a-divider orientation="left">{{$t('m.personalInfo')}}</a-divider>
+    <a-row :gutter="10">
+      <a-col span="4">
+        <img :src="imgUrl" style="height:148px;border-radius:5px;">
+      </a-col>
+      <a-col span="20">
+        <a-form :form="form" style="background:whitesmoke; padding:10px;border-radius:5px;">
+          <a-row :gutter="10">
+            <a-col span="12">
+              <a-row>
+                <a-form-item :label="$t('m.nameInput')" :label-col="{ span: 8 }"
+                  :wrapper-col="{ span: 16 }">
+                  <a-input v-model="form.name" readOnly />
+                </a-form-item>
+              </a-row>
+            </a-col>
+            <a-col span="12">
+              <a-row>
+                <a-form-item :label="$t('m.emailInput')" :label-col="{ span: 8 }"
+                  :wrapper-col="{ span: 16 }">
+                  <a-input type="email" v-model="form.mail" readOnly />
+                </a-form-item>
+              </a-row>
+            </a-col>
+          </a-row>
+          <a-row :gutter="10">
+            <a-col span="12">
+              <a-row>
+                <a-form-item :label="$t('m.phoneInput')" :label-col="{ span: 8 }"
+                  :wrapper-col="{ span: 16 }">
+                  <a-input v-model="form.phone" readOnly />
+                </a-form-item>
+              </a-row>
+            </a-col>
+            <a-col span="12">
+              <a-form-item :label="$t('m.websiteInput')" :label-col="{ span: 8 }"
+                :wrapper-col="{ span: 16 }">
+                <a-input v-model="form.website" readOnly/>
+              </a-form-item>
+            </a-col>
+          </a-row>
+        </a-form>
+      </a-col>
+    </a-row>
+    <a-row style="margin-top:10px;">
       <a :href="resumeLink" target="_blank" style="color:white; text-decoration:none;float:right;">
         <a-button type="primary" icon="download">
           <span> {{$t('m.resumeTxt')}}</span>
@@ -64,11 +77,17 @@
 </template>
 <script>
   import Bus from '@/lib/bus';
+  import profilePic from "@/assets/profilepic.jpg";
+  const Charts = () => import("@/components/Charts.vue");
   export default {
     name: "about",
+    components: {
+      Charts
+    },
     data() {
       return {
         contentHeight: 690,
+        imgUrl: profilePic,
         form: {
           name: "赵庆",
           mail: "andychao217@qq.com",

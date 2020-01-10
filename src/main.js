@@ -7,6 +7,7 @@ import Bus from './lib/bus';
 import util from './lib/util';
 import Antd from "ant-design-vue";
 import Vant from 'vant';
+import VCharts from 'v-charts';
 import "ant-design-vue/dist/antd.css";
 import 'vant/lib/index.css';
 import "./css/index.css";
@@ -17,6 +18,7 @@ Vue.prototype.$util = util;
 Vue.use(VueI18n);
 Vue.use(Antd);
 Vue.use(Vant);
+Vue.use(VCharts);
 
 //定义标识符
 const i18n = new VueI18n({
