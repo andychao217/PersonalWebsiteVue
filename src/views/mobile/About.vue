@@ -25,32 +25,45 @@
           </div>
         </van-swipe-item>
       </van-swipe>
-      <van-row>
-        <div style="padding:0px 20px;">
-          <van-divider content-position="left">{{$t('m.ability')}}</van-divider>
-          <Charts style="margin-top:-40px;"></Charts>
-        </div>
-      </van-row>
-      <van-divider content-position="left" style="margin-top:-50px;z-index:999">{{$t('m.personalInfo')}}</van-divider>
-      <van-row>
-        <van-cell-group>
-          <van-field v-model="form.name" readonly clickable left-icon="contact" label-align="left"
-            :label="$t('m.nameInput')" />
-          <van-field v-model="form.mail" type="email" left-icon="envelop-o" readonly clickable
-            label-align="left" :label="$t('m.emailInput')" />
-          <van-field v-model="form.phone" readonly clickable left-icon="phone-o" label-align="left"
-            :label="$t('m.phoneInput')" />
-          <van-field v-model="form.website" readonly clickable left-icon="wap-home-o"
-            label-align="left" :label="$t('m.websiteInput')" />
-        </van-cell-group>
-      </van-row>
-      <van-row style="margin-top:10px;padding:10px 16px;">
-        <a :href="resumeLink" target="_blank" style="color:white; text-decoration:none;">
-          <van-button icon="down" type="info" block>
-            <span> {{$t('m.resumeTxt')}}</span>
-          </van-button>
-        </a>
-      </van-row>
+    </van-row>
+    <van-row>
+      <van-tabs v-model="active">
+        <van-tab :title="$t('m.introTitle')">
+          <van-row style="padding:10px;">
+            <van-cell v-for="(item, index) in introArray" :key="item">{{index+1}}. {{item}}</van-cell>
+          </van-row>
+          <van-row style="padding:10px 25px;text-align:left;">
+            <strong>{{$t('m.hobbyTitle')}}: </strong>
+            <van-tag plain v-for="(item, index)  in hobbyArray" :key="item" :color="colorList[index]" style="margin-right:5px;font-size:14px;">{{item}}</van-tag>
+          </van-row>
+        </van-tab>
+        <van-tab :title="$t('m.ability')">
+          <div style="padding:20px;">
+            <Charts></Charts>
+          </div>
+        </van-tab>
+        <van-tab :title="$t('m.personalInfo')">
+          <van-row style="margin-top:20px;">
+            <van-cell-group>
+              <van-field v-model="form.name" readonly clickable left-icon="contact" label-align="left"
+                :label="$t('m.nameInput')" />
+              <van-field v-model="form.mail" type="email" left-icon="envelop-o" readonly clickable
+                label-align="left" :label="$t('m.emailInput')" />
+              <van-field v-model="form.phone" readonly clickable left-icon="phone-o" label-align="left"
+                :label="$t('m.phoneInput')" />
+              <van-field v-model="form.website" readonly clickable left-icon="wap-home-o"
+                label-align="left" :label="$t('m.websiteInput')" />
+            </van-cell-group>
+          </van-row>
+          <van-row style="margin-top:10px;padding:10px 16px;">
+            <a :href="resumeLink" target="_blank" style="color:white; text-decoration:none;">
+              <van-button icon="down" type="info" block>
+                <span> {{$t('m.resumeTxt')}}</span>
+              </van-button>
+            </a>
+          </van-row>
+        </van-tab>
+      </van-tabs>
     </van-row>
   </div>
 </template>
@@ -66,6 +79,7 @@
     data() {
       return {
         contentHeight: 690,
+        active: 0,
         bgUrl1: 'url(' + bgPic1 + ')',
         bgUrl2: 'url(' + bgPic2 + ')',
         form: {
@@ -74,7 +88,22 @@
           phone: "(+86)13548691522",
           website: "https://www.andychao217.cn"
         },
-        publicPath: process.env.BASE_URL
+        publicPath: process.env.BASE_URL,
+        colorList: [
+          '#c12e34', 
+          '#e6b600', 
+          '#0098d9', 
+          '#2b821d', 
+          '#005eaa', 
+          '#339ca8',
+          '#cda819',
+          '#2ec7c9',
+          '#b6a2de',
+          '#5ab1ef',
+          '#ffb980',
+          '#d87a80',
+          '#8d98b3'
+        ]
       }
     },
     computed: {
@@ -85,6 +114,12 @@
         } else {
           return this.publicPath + 'AndyChaoResume.pdf';
         }
+      },
+      introArray () {
+        return (this.$t('m.introTxt')).split(';');
+      },
+      hobbyArray () {
+        return (this.$t('m.hobbies')).split(',');
       }
     },
     watch: {

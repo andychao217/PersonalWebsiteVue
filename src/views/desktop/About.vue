@@ -1,6 +1,8 @@
 <template>
-  <div class="scrollDiv" :style="{height: contentHeight + 'px'}">
-    <a-alert :message="$t('m.helloWhoAmI')" type="info" showIcon />
+  <div class="scrollDiv" ref="container" :style="{height: contentHeight + 'px'}">
+    <a-affix :target="() => this.$refs.container">
+      <a-alert :message="$t('m.helloWhoAmI')" type="info" showIcon />
+    </a-affix>
     <a-row style="margin-top: 10px;">
       <a-carousel autoplay vertical>
         <div style="margin-top:20px;">
@@ -15,9 +17,16 @@
     </a-row>
     <a-row :gutter="10" style="margin-top:10px;">
       <a-col span="14">
-
+        <a-list size="small" bordered :dataSource="introArray" style="height:438px;">
+          <a-list-item slot="renderItem" slot-scope="item, index" style="text-align:left;">{{index+1}}. {{item}}</a-list-item>
+          <div slot="header">{{$t('m.introTitle')}}</div>
+          <div slot="footer" style="text-align:left;">
+            <strong>{{$t('m.hobbyTitle')}}: </strong>
+            <a-tag v-for="(item, index)  in hobbyArray" :key="item" :color="colorList[index]">{{item}}</a-tag>
+          </div>
+        </a-list>
       </a-col>
-      <a-col span="10" style="padding:20px;background:whitesmoke;border-radius:5px;">
+      <a-col span="10" style="padding:20px;background:whitesmoke;border-radius:5px;height:438px;">
         <h3 style="text-align:left;">{{$t('m.ability')}}</h3>
         <Charts style="margin-top:-35px;"></Charts>
       </a-col>
@@ -94,17 +103,38 @@
           phone: "(+86)13548691522",
           website: "https://www.andychao217.cn"
         },
-        publicPath: process.env.BASE_URL
+        publicPath: process.env.BASE_URL,
+        colorList: [
+          '#c12e34', 
+          '#e6b600', 
+          '#0098d9', 
+          '#2b821d', 
+          '#005eaa', 
+          '#339ca8',
+          '#cda819',
+          '#2ec7c9',
+          '#b6a2de',
+          '#5ab1ef',
+          '#ffb980',
+          '#d87a80',
+          '#8d98b3'
+        ]
       }
     },
     computed: {
-      resumeLink() {
+      resumeLink () {
         let lang = localStorage.lang;
         if (lang === 'zh-CN') {
           return this.publicPath + '赵庆简历.pdf';
         } else {
           return this.publicPath + 'AndyChaoResume.pdf';
         }
+      },
+      introArray () {
+        return (this.$t('m.introTxt')).split(';');
+      },
+      hobbyArray () {
+        return (this.$t('m.hobbies')).split(',');
       }
     },
     watch: {

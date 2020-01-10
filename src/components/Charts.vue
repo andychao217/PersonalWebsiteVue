@@ -18,56 +18,57 @@
     data() {
       return {
         chartSettings: {
-            offsetY: 0,
-            xAxisType: ['percent'],
-            digit: 2,
-            labelLine: {
-                show: true
-            },
-            itemStyle: {
-                normal: {
-                    color: (params) => {
-                        var colorList = [
-                            '#c12e34', 
-                            '#e6b600', 
-                            '#0098d9', 
-                            '#2b821d', 
-                            '#005eaa', 
-                            '#339ca8',
-                            '#cda819',
-                            '#2ec7c9',
-                            '#b6a2de',
-                            '#5ab1ef',
-                            '#ffb980',
-                            '#d87a80',
-                            '#8d98b3'
-                        ]
-                        return colorList[params.dataIndex]
-                    }
-                }
+          offsetY: 0,
+          xAxisType: ['percent'],
+          digit: 2,
+          labelLine: {
+            show: true
+          },
+          itemStyle: {
+            normal: {
+              color: (params) => {
+                var colorList = [
+                  '#c12e34', 
+                  '#e6b600', 
+                  '#0098d9', 
+                  '#2b821d', 
+                  '#005eaa', 
+                  '#339ca8',
+                  '#cda819',
+                  '#2ec7c9',
+                  '#b6a2de',
+                  '#5ab1ef',
+                  '#ffb980',
+                  '#d87a80',
+                  '#8d98b3'
+                ]
+                return colorList[params.dataIndex]
+              }
             }
+          }
         },
         chartExtend: {
-            legend () {
-                return {
-                    show: false,
-                    textStyle: {
-                        color: 'white'
-                    }
-                }
+          legend () {
+            return {
+              show: false,
+              textStyle: {
+                color: 'white'
+              }
             }
+          }
         },
         toolbox: {
-            feature: {
-                magicType: {
-                    type: ['line', 'bar', 'pie']
-                },
-                saveAsImage: {}
-            }
+          feature: {
+            magicType: {
+              type: ['line', 'bar', 'pie']
+            },
+            saveAsImage: {}
+          }
         },
         chartData: {
           columns: ['item', 'value'],
-          rows: [{
+          rows: [
+            {
               'item': 'HTML',
               'value': 0.95
             },
