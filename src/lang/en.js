@@ -1,6 +1,7 @@
 export const m = {
   hello: "Welcome",
   windowTitle: "My Personal Information",
+  hobbies: "Reading, Exercise, Movie, Music",
   about: "About me",
   timeLine: "Timeline",
   portfolio: "Portfolio",
