@@ -76,6 +76,7 @@
   const BmMarker = () => import("vue-baidu-map/components/overlays/Marker.vue");
   const BmLabel = () => import("vue-baidu-map/components/overlays/Label.vue");
   export default {
+    name: "contactMobile",
     components: {
       BaiduMap,
       BmTraffic,

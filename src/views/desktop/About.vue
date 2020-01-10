@@ -1,6 +1,7 @@
 <template>
   <div class="scrollDiv" :style="{height: contentHeight + 'px'}">
-    <a-row>
+    <a-alert :message="$t('m.helloWhoAmI')" type="info" showIcon />
+    <a-row style="margin-top: 10px;">
       <a-carousel autoplay vertical>
         <div style="margin-top:20px;">
           <h1>{{$t('m.lifeMottoJobs1')}}</h1>
@@ -12,6 +13,7 @@
         </div>
       </a-carousel>
     </a-row>
+  
     <a-divider orientation="left">{{$t('m.personalInfo')}}</a-divider>
     <a-row>
       <a-form :form="form">

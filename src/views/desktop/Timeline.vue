@@ -6,7 +6,7 @@
 <script>
   import Bus from '@/lib/bus';
   export default {
-    name: "timeline",
+    name: "timeLine",
     data() {
       return {
         contentHeight: 690

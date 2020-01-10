@@ -1,5 +1,6 @@
 export const m = {
   hello: "欢迎",
+  helloWhoAmI: "你好, 我叫赵庆, 一名热爱生活的程序员、前端开发工程师",
   windowTitle: "我的个人信息展示",
   hobbies: "阅读,健身,电影,音乐",
   about: "关于我",

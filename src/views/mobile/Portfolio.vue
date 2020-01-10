@@ -42,7 +42,6 @@
   import Vue from 'vue';
   import { ImagePreview } from 'vant';
   Vue.use(ImagePreview);
-
   export default {
     name: "portfolioMobile",
     data() {

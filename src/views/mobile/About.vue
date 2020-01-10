@@ -1,39 +1,50 @@
 <template>
   <div class="scrollDiv"
-    :style="{overflowY:'auto', height: contentHeight + 133 + 'px', padding: '10px'}">
-    <van-swipe :autoplay="3000" indicator-color="white">
-      <van-swipe-item>
-        <div class="swipeDiv" :style="{backgroundImage: bgUrl1}">
-          <h3 style="margin-top:10px;">{{$t('m.lifeMottoJobs1')}}</h3>
-          <h1>-{{$t('m.jobs')}}</h1>
-        </div>
-      </van-swipe-item>
-      <van-swipe-item>
-        <div class="swipeDiv" :style="{backgroundImage: bgUrl2}">
-          <h3>{{$t('m.lifeMottoGump')}}</h3>
-          <h1>-{{$t('m.gump')}}</h1>
-        </div>
-      </van-swipe-item>
-    </van-swipe>
-    <van-divider content-position="left">{{$t('m.personalInfo')}}</van-divider>
+    :style="{overflowY:'auto', height: contentHeight + 133 + 'px', padding: '0px'}">
+    <van-sticky>
+      <van-notice-bar
+        color="#1989fa"
+        background="#ecf9ff"
+        left-icon="info-o"
+      >
+        {{$t('m.helloWhoAmI')}}
+      </van-notice-bar>
+    </van-sticky>
     <van-row>
-      <van-cell-group>
-        <van-field v-model="form.name" readonly clickable left-icon="contact" label-align="left"
-          :label="$t('m.nameInput')" />
-        <van-field v-model="form.mail" type="email" left-icon="envelop-o" readonly clickable
-          label-align="left" :label="$t('m.emailInput')" />
-        <van-field v-model="form.phone" readonly clickable left-icon="phone-o" label-align="left"
-          :label="$t('m.phoneInput')" />
-        <van-field v-model="form.website" readonly clickable left-icon="wap-home-o"
-          label-align="left" :label="$t('m.websiteInput')" />
-      </van-cell-group>
-    </van-row>
-    <van-row style="margin-top:10px;">
-      <a :href="resumeLink" target="_blank" style="color:white; text-decoration:none;">
-        <van-button icon="down" type="info" block>
-          <span> {{$t('m.resumeTxt')}}</span>
-        </van-button>
-      </a>
+      <van-swipe :autoplay="3000" indicator-color="white">
+        <van-swipe-item>
+          <div class="swipeDiv" :style="{backgroundImage: bgUrl1}">
+            <h3 style="margin-top:10px;">{{$t('m.lifeMottoJobs1')}}</h3>
+            <h1>-{{$t('m.jobs')}}</h1>
+          </div>
+        </van-swipe-item>
+        <van-swipe-item>
+          <div class="swipeDiv" :style="{backgroundImage: bgUrl2}">
+            <h3>{{$t('m.lifeMottoGump')}}</h3>
+            <h1>-{{$t('m.gump')}}</h1>
+          </div>
+        </van-swipe-item>
+      </van-swipe>
+      <van-divider content-position="left">{{$t('m.personalInfo')}}</van-divider>
+      <van-row>
+        <van-cell-group>
+          <van-field v-model="form.name" readonly clickable left-icon="contact" label-align="left"
+            :label="$t('m.nameInput')" />
+          <van-field v-model="form.mail" type="email" left-icon="envelop-o" readonly clickable
+            label-align="left" :label="$t('m.emailInput')" />
+          <van-field v-model="form.phone" readonly clickable left-icon="phone-o" label-align="left"
+            :label="$t('m.phoneInput')" />
+          <van-field v-model="form.website" readonly clickable left-icon="wap-home-o"
+            label-align="left" :label="$t('m.websiteInput')" />
+        </van-cell-group>
+      </van-row>
+      <van-row style="margin-top:10px;padding:0px 16px;">
+        <a :href="resumeLink" target="_blank" style="color:white; text-decoration:none;">
+          <van-button icon="down" type="info" block>
+            <span> {{$t('m.resumeTxt')}}</span>
+          </van-button>
+        </a>
+      </van-row>
     </van-row>
   </div>
 </template>
