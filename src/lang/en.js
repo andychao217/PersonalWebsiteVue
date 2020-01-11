@@ -3,7 +3,7 @@ export const m = {
   helloWhoAmI: "Hello, I'm Andy Chao, a front-end engineer who enjoys the pleasures of life",
   ability: "Ability",
   introTitle: "Characteristics",
-  introTxt: "I'm a curious web front-end engineer with creative mind and willing to accept challenges.;I made the Wechat Applet Available for users whitin just 14 days(Including server, domain, coding(front & back end), UI design, etc.);I also learnt the Go language from scratch in 10 days to build a useful web server;I’m seeking a for job to make full use of these talents.;Let's start scrolling and learn more about me",
+  introTxt: "I'm a curious software engineer with creative mind and willing to accept challenges.;I made the Wechat Applet Available for users whitin just 14 days(Including server, domain, coding(front & back end), UI design, etc.);I also learnt the Go language from scratch in 10 days to build a useful web server;I’m seeking a for job to make full use of these talents.;Last year, through continuous exercise, I lost 40 Jin of weight, and now I still keep on exercising for at least 1 hour a day;Now let's start scrolling and learn more about me",
   windowTitle: "My Personal Information",
   hobbies: "Reading,Exercise,Movie,Music",
   hobbyTitle: "Hobbies",
@@ -52,5 +52,16 @@ export const m = {
   cardesc: "Car whistle capture management platform 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
   prisondesc: "Backstage of prison interview system 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
   minidesc: "Wechat applet 1sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
-  qrdesc: "QR code generation tool 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag"
+  qrdesc: "QR code generation tool 11sdfafdasgdgasdgfagfdagafdgadgfdagsdfafdasgdgasdgfagfdagafdgadgfdag",
+  educationTitle: "Education",
+  workTitle: "Work",
+  tillNow: "",
+  bachelorTitle: "",
+  bachelorContent: "",
+  masterTitle: "",
+  masterContent: "",
+  selfLearningTitle: "",
+  selfLearningContent: "",
+  workSponTitle: "",
+  workSponContent: ""
 };

@@ -1,15 +1,34 @@
 <template>
-  <div class="scrollDiv" :style="{height: contentHeight + 'px', background: 'red'}">
-    timeline desktop
+  <div class="scrollDiv" :style="{height: contentHeight + 'px', padding: '10px 10px'}">
+    <a-row>
+      <a-timeline>
+        <a-timeline-item v-for="(item, index) in data" :key="index" :color="item.color" style="text-align:left;">
+          <a-icon slot="dot" :type="item.icon" style="font-size: 24px;" />
+          <h3 style="font-weight:bolder;margin-left:5px;">{{$t(item.title)}}</h3>
+          <a-timeline>
+            <a-timeline-item v-for="(experience, index2) in item.experience" :key="index2" style="text-align:left;">
+              <a-card :title="$t(experience.title)" size="small" hoverable>
+                <p>
+                  {{$t(experience.starttime)}} - {{$t(experience.endtime)}}
+                </p>
+                <p>{{$t(experience.content)}}</p>
+              </a-card>
+            </a-timeline-item>
+          </a-timeline>
+        </a-timeline-item>
+      </a-timeline>
+    </a-row>
   </div>
 </template>
 <script>
   import Bus from '@/lib/bus';
+  import timeLineData from '@/lib/timeLineData.js';
   export default {
     name: "timeLine",
     data() {
       return {
-        contentHeight: 690
+        contentHeight: 690,
+        data: null
       }
     },
     watch: {
@@ -37,6 +56,7 @@
           _this.contentHeight = _this.$util.resizeTable();
         })()
       }
+      this.data = timeLineData;
     },
     beforeRouteLeave(to, from, next) {
       this.$destroy();
