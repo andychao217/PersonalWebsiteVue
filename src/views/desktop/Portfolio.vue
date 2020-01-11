@@ -82,7 +82,7 @@
     },
     methods: {
       handleOpenModal(item) {
-        this.modal.title = this.$t(item.title);
+        this.modal.title = this.$t(item.title) + " (" + this.$t(item.desc) + ")";
         this.modal.item = item;
         setTimeout(() => {
           this.modal.show = true;

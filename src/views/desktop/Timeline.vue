@@ -9,9 +9,14 @@
             <a-timeline-item v-for="(experience, index2) in item.experience" :key="index2" style="text-align:left;">
               <a-card :title="$t(experience.title)" size="small" hoverable>
                 <p>
-                  {{$t(experience.starttime)}} - {{$t(experience.endtime)}}
+                  {{experience.starttime}} - {{$t(experience.endtime)}}
                 </p>
-                <p>{{$t(experience.content)}}</p>
+                <p v-if="experience.content !== 'm.workSponContent'">
+                  {{$t(experience.content)}}
+                </p>
+                <a-list v-else size="small" bordered :dataSource="$t(experience.content).split(';')">
+                  <a-list-item slot="renderItem" slot-scope="item">{{item}}</a-list-item>
+                </a-list>
               </a-card>
             </a-timeline-item>
           </a-timeline>
