@@ -67,5 +67,8 @@ export const m = {
   selfLearningTitle: "Front-end software development",
   selfLearningContent: "Learnt front-end software technologies by myself, and now I'm still keep learning related technologies in-depth.",
   workSponTitle: "Changsha SPON Communication Technology Co., Ltd. - Software Engineer",
-  workSponContent: "• Development of xc9000 intercom and broadcast integrated management system (front-end and PHP back-end);• Development of customer service wechat applet (publish the program online within 14 days, including the construction of server and the programming of front and back end);• Embedded web program development for multiple devices (front end and PHP back end);• Development of multiple management platforms (front-end and Go, PHP and other back-end server programs);• Development of intelligent audio analysis management platform (Web and QT C++ program);• Finished a product QR code generation software for internal use of the company within just 2 days"
+  workSponContent: "• Development of xc9000 intercom and broadcast integrated management system (front-end and PHP back-end);• Development of customer service wechat applet (publish the program online within 14 days, including the construction of server and the programming of front and back end);• Embedded web program development for multiple devices (front end and PHP back end);• Development of multiple management platforms (front-end and Go, PHP and other back-end server programs);• Development of intelligent audio analysis management platform (Web and QT C++ program);• Finished a product QR code generation software for internal use of the company within just 2 days",
+  sendSuccess: "Mail sent",
+  sendSuccessContent: "Thank you so much, I'll get in touch with you ASAP.",
+  sendFailed: "Failed to send the mail"
 };

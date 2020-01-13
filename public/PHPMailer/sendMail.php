@@ -6,7 +6,7 @@ require './src/Exception.php';
 require './src/PHPMailer.php';
 require './src/SMTP.php';
 
-$siteOwnersEmail = 'andychao217@vip.qq.com';
+$siteOwnersEmail = 'andychao217@qq.com';
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 if($_POST) {
     $name = trim(stripslashes($_POST['contactName']));
@@ -51,12 +51,12 @@ if($_POST) {
             $mail->isSMTP();                             // 使用SMTP
             $mail->Host = 'smtp.qq.com';                // SMTP服务器
             $mail->SMTPAuth = true;                      // 允许 SMTP 认证
-            $mail->Username = 'andychao217@qq.com';      // SMTP 用户名  即邮箱的用户名
+            $mail->Username = $siteOwnersEmail;      // SMTP 用户名  即邮箱的用户名
             $mail->Password = 'fxapmgivnveibcdd';        // SMTP 密码  部分邮箱是授权码(例如163邮箱)
             $mail->SMTPSecure = 'ssl';                   // 允许 TLS 或者ssl协议
             $mail->Port = 465;                           // 服务器端口 25 或者465 具体要看邮箱服务器支持
         
-            $mail->setFrom($email, $name);  //发件人
+            $mail->setFrom($siteOwnersEmail, $name);  //发件人
             $mail->addAddress($siteOwnersEmail, 'Andy Chao');  // 收件人
             //$mail->addAddress('ellen@example.com');  // 可添加多个收件人
             $mail->addReplyTo($email, $name); //回复的时候回复给哪个邮箱 建议和发件人一致

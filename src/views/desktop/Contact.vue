@@ -172,8 +172,17 @@
         } else {
           sendMail(_this.form.name, _this.form.mail, _this.form.subject, _this.form.message).then(
             response => {
-              alert(response.data);
-              console.log(response);
+              if (response.data === "OK") {
+                _this.$notification.success({
+                  message: _this.$t('m.sendSuccess'),
+                  description: _this.$t('m.sendSuccessContent')
+                });
+              } else {
+                _this.$notification.error({
+                  message: _this.$t('m.sendFailed'),
+                  description: response.data
+                });
+              }
             }).catch(response => {
               console.log(response);
           });
@@ -193,6 +202,7 @@
           _this.contentHeight = _this.$util.resizeTable();
         })()
       }
+      
     },
     beforeRouteLeave(to, from, next) {
       this.$destroy();
