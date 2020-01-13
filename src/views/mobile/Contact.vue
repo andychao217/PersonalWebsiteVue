@@ -157,6 +157,7 @@
         } else {
           sendMail(_this.form.name, _this.form.mail, _this.form.subject, _this.form.message).then(
             response => {
+              alert(response.data);
               console.log(response);
             }).catch(response => {
               console.log(response);
