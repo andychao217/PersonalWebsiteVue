@@ -65,16 +65,21 @@
         </van-tab>
       </van-tabs>
     </van-row>
+    <van-row>
+      <MobileFooter></MobileFooter>
+    </van-row>
   </div>
 </template>
 <script>
   import bgPic1 from "@/assets/bg1.jpg";
   import bgPic2 from "@/assets/bg2.jpg";
+  import MobileFooter from "@/components/MobileFooter.vue";
   const Charts = () => import("@/components/Charts.vue");
   export default {
     name: "aboutMobile",
     components: {
-      Charts
+      Charts,
+      MobileFooter
     },
     data() {
       return {

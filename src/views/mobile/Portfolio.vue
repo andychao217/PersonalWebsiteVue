@@ -16,16 +16,9 @@
         </van-tag>
       </div>
     </van-card>
-    <!-- <van-grid :column-num="2" :gutter="10">
-      <van-grid-item
-        v-for="item in gridData" 
-        :key="item.name"
-        @click.native="handleOpenModal(item)"
-      >
-        <van-image width="50px" height="50px" :src="publicPath + 'portfolio/' + item.name + '.svg'" />
-        <div class="van-multi-ellipsis--l2" style="margin-top:10px; font-size:12px;">{{$t(item.title)}}</div>
-      </van-grid-item>
-    </van-grid> -->
+    <van-row>
+      <MobileFooter></MobileFooter>
+    </van-row>
     <van-image-preview
       v-model="modal.show"
       :images="modal.images"
@@ -39,11 +32,15 @@
 </template>
 <script>
   import portfolioData from "@/lib/portfolioData.js";
+  import MobileFooter from "@/components/MobileFooter.vue";
   import Vue from 'vue';
   import { ImagePreview } from 'vant';
   Vue.use(ImagePreview);
   export default {
     name: "portfolioMobile",
+    components: {
+      MobileFooter
+    },
     data() {
       return {
         contentHeight: 690,

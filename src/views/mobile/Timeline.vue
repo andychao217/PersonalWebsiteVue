@@ -25,12 +25,19 @@
         </van-panel>
       </van-collapse-item>
     </van-collapse>
+    <van-row>
+      <MobileFooter></MobileFooter>
+    </van-row>
   </div>
 </template>
 <script>
   import timeLineData from '@/lib/timeLineData.js';
+  import MobileFooter from "@/components/MobileFooter.vue";
   export default {
     name: "timeLineMobile",
+    components: {
+      MobileFooter
+    },
     data() {
       return {
         contentHeight: 690,

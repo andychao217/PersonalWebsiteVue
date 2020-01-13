@@ -58,6 +58,9 @@
     <van-row>
       <van-button type="primary" @click="handleSubmit" block>{{$t('m.submit')}}</van-button>
     </van-row>
+    <van-row>
+      <MobileFooter></MobileFooter>
+    </van-row>
   </div>
 </template>
 <script>
@@ -66,6 +69,7 @@
   import {
     sendMail
   } from '@/api/sendMail';
+  import MobileFooter from "@/components/MobileFooter.vue";
   Vue.use(Toast);
   const BaiduMap = () => import("vue-baidu-map/components/map/Map.vue");
   const BmTraffic = () => import("vue-baidu-map/components/layers/Traffic.vue");
@@ -85,7 +89,8 @@
       BmOverviewMap,
       BmGeolocation,
       BmMarker,
-      BmLabel
+      BmLabel,
+      MobileFooter
     },
     data() {
       return {
