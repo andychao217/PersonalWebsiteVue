@@ -69,8 +69,8 @@ if($_POST) {
         
             //Content
             $mail->isHTML(true);                                  // 是否以HTML文档格式发送  发送后客户端可直接显示对应HTML内容
-            $mail->Subject = $subject . time();
-            $mail->Body    = '<div>'. $message. '</div>' . date('Y-m-d H:i:s');
+            $mail->Subject = $subject. ' '. date('Y-m-d H:i:s');
+            $mail->Body    = '<div>'. $message. '</div>'. ' '. date('Y-m-d H:i:s');
             $mail->AltBody = $message;
         
             $mail->send();
