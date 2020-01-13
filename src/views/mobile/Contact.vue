@@ -149,16 +149,22 @@
         let _this = this;
         if (
           _this.form.name === "" || 
-          _this.form.mail === "" || 
-          _this.form.subject === "" || 
+          _this.form.mail === "" ||
           _this.form.message === ""
         ) {
           Toast.fail(_this.$t('m.errorMessage'));
         } else {
           sendMail(_this.form.name, _this.form.mail, _this.form.subject, _this.form.message).then(
             response => {
-              alert(response.data);
-              console.log(response);
+              if (response.data === "OK") {
+                Toast.success(_this.$t('m.sendSuccess'));
+                _this.form.name = "";
+                _this.form.mail = "";
+                _this.form.subject = "";
+                _this.form.message = "";
+              } else {
+                Toast.fail(_this.$t('m.sendFailed'));
+              }
             }).catch(response => {
               console.log(response);
           });

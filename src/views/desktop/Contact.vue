@@ -162,7 +162,6 @@
         if (
           _this.form.name === "" ||
           _this.form.mail === "" ||
-          _this.form.subject === "" ||
           _this.form.message === ""
         ) {
           _this.$error({
@@ -177,6 +176,10 @@
                   message: _this.$t('m.sendSuccess'),
                   description: _this.$t('m.sendSuccessContent')
                 });
+                _this.form.name = "";
+                _this.form.mail = "";
+                _this.form.subject = "";
+                _this.form.message = "";
               } else {
                 _this.$notification.error({
                   message: _this.$t('m.sendFailed'),
