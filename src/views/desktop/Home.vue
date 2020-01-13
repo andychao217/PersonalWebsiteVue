@@ -13,6 +13,19 @@
           <span>{{$t(item.meta.title)}}</span>
         </a-menu-item>
       </a-menu>
+      <div v-if="!collapsed" style="position:absolute; left:0px; bottom:0px; height:76px; width:100%; padding: 10px;">
+        <a-tag color="#f50" style="margin-bottom:10px; width:100%;">
+          <span style="width:70px;">{{$t('m.dedaoPointTxt')}}</span>
+          <a-divider type="vertical" />
+          <span>{{$t('m.dedaoPoint')}}</span>
+        </a-tag>
+        <br>
+        <a-tag color="#108ee9" style="width:100%;">
+          <span style="width:70px;">{{$t('m.zhimaCreditTxt')}}</span>
+          <a-divider type="vertical" />
+          <span>{{$t('m.zhimaCredit')}}</span>
+        </a-tag>
+      </div>
     </a-layout-sider>
     <a-layout>
       <a-layout-header

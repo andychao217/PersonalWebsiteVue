@@ -7,7 +7,7 @@
         background="#ecf9ff"
         left-icon="info-o"
       >
-        {{$t('m.helloWhoAmI')}}
+        {{$t('m.helloWhoAmI')}} ({{$t('m.dedaoPointTxt')}}: {{$t('m.dedaoPoint')}} | {{$t('m.zhimaCreditTxt')}}: {{$t('m.zhimaCredit')}})
       </van-notice-bar>
     </van-sticky>
     <van-row>
