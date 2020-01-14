@@ -86,7 +86,7 @@
       }
       this.$i18n.locale = this.lang;
       document.title = this.$t("m.windowTitle");
-      this.menus = this.$router.options.routes[1].children;
+      this.menus = this.$router.options.routes[2].children;
       this.handleChangePage(0);
     }
   }

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/desktop/Home.vue";
+import Loading from "../views/Loading.vue";
 
 const originalPush = VueRouter.prototype.push;
 VueRouter.prototype.push = function push(location) {
@@ -12,9 +12,13 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    alias: "/home",
+    alias: "loading",
+    component: Loading
+  },
+  {
+    path: "/home",
     name: "home",
-    component: Home,
+    component: () => import("../views/desktop/Home.vue"),
     children: [{
         path: "/about",
         name: "about",

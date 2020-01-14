@@ -9,7 +9,7 @@
 <script>
   export default {
     name: 'App',
-    created () {
+    beforeCreate () {
       if (!this.$util.IsPC()) {
         this.$router.push('aboutMobile');
       } else {

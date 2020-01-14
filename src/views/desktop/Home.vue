@@ -106,7 +106,7 @@
       } else {
         this.collapsed = false;
       }
-      this.menus = this.$router.options.routes[0].children;
+      this.menus = this.$router.options.routes[1].children;
     },
     mounted() {
       let _this = this;
