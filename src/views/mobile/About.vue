@@ -34,7 +34,7 @@
           </van-row>
           <van-row style="padding:10px 25px;text-align:left;">
             <strong>{{$t('m.hobbyTitle')}}: </strong>
-            <van-tag plain v-for="(item, index)  in hobbyArray" :key="item" :color="colorList[index]" style="margin-right:5px;font-size:14px;">{{item}}</van-tag>
+            <van-tag plain v-for="(item, index) in hobbyArray" :key="item" :color="colorList[index]" style="margin-right:5px;font-size:14px;">{{item}}</van-tag>
           </van-row>
         </van-tab>
         <van-tab :title="$t('m.ability')">
