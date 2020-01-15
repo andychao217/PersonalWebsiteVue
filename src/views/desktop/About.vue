@@ -1,8 +1,6 @@
 <template>
   <div class="scrollDiv" ref="container" :style="{height: contentHeight + 'px'}">
-    <a-affix :target="() => this.$refs.container">
-      <a-alert :message="$t('m.helloWhoAmI')" type="info" showIcon />
-    </a-affix>
+    <a-alert :message="$t('m.helloWhoAmI')" type="info" showIcon />
     <a-row style="margin-top: 10px;">
       <a-carousel autoplay vertical>
         <div style="margin-top:20px;">
