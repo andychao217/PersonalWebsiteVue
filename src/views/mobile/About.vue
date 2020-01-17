@@ -27,7 +27,7 @@
       </van-swipe>
     </van-row>
     <van-row>
-      <van-tabs v-model="active">
+      <van-tabs v-model="active" @touchstart.native="handleTouchStart" @touchend.native="handleTouchEnd">
         <van-tab :title="$t('m.introTitle')">
           <van-row style="padding:10px;">
             <van-cell v-for="(item, index) in introArray" :key="item">{{index+1}}. {{item}}</van-cell>
@@ -108,7 +108,11 @@
           '#ffb980',
           '#d87a80',
           '#8d98b3'
-        ]
+        ],
+        touchStartX: 0,
+        touchEndX: 0,
+        touchStartY: 0,
+        touchEndY: 0
       }
     },
     computed: {
@@ -137,6 +141,39 @@
             that.timer = false;
           }, 400);
         }
+      }
+    },
+    methods: {
+      handleTouchStart (e) {
+        this.touchStartX = e.changedTouches[0].pageX;
+        this.touchStartY = e.changedTouches[0].pageY;
+      },
+      handleTouchEnd (e) {
+        let curTabIndex = this.active;
+        this.touchEndX = e.changedTouches[0].pageX;
+        this.touchEndY = e.changedTouches[0].pageY;
+        let distanceX = this.touchEndX - this.touchStartX;
+        let distanceY = this.touchEndY - this.touchStartY;
+        let absX = Math.abs(distanceX);
+        let absY = Math.abs(distanceY);
+        // console.log("absX: " + absX);
+        // console.log("absY: " + absY);
+        if (absX > absY) {
+          if (distanceX > 50) {
+            if (curTabIndex < 2) {
+              curTabIndex += 1;
+            } else {
+              curTabIndex = 0;
+            }
+          } else if (distanceX < 50) {
+            if (curTabIndex > 0) {
+              curTabIndex -= 1;
+            } else {
+              curTabIndex = 2;
+            }
+          }
+        }
+        this.active = curTabIndex;
       }
     },
     mounted() {
