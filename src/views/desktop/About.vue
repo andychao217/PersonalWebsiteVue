@@ -15,12 +15,14 @@
     </a-row>
     <a-row :gutter="10" style="margin-top:10px;">
       <a-col span="14">
-        <a-list size="small" bordered :dataSource="introArray" style="height:438px;">
-          <a-list-item slot="renderItem" slot-scope="item, index" style="text-align:left;">{{index+1}}. {{item}}</a-list-item>
+        <a-list size="small" bordered style="height:438px;">
+          <a-list-item style="text-align:left;" v-for="(intro, indexIntro) in introArray"
+            :key="indexIntro">{{intro}}</a-list-item>
           <div slot="header">{{$t('introTitle')}}</div>
           <div slot="footer" style="text-align:left;">
             <strong>{{$t('hobbyTitle')}}: </strong>
-            <a-tag v-for="(item, index)  in hobbyArray" :key="item" :color="colorList[index]">{{item}}</a-tag>
+            <a-tag v-for="(item, index)  in hobbyArray" :key="item" :color="colorList[index]">
+              {{item}}</a-tag>
           </div>
         </a-list>
       </a-col>
@@ -66,7 +68,7 @@
             <a-col span="12">
               <a-form-item :label="$t('websiteInput')" :label-col="{ span: 8 }"
                 :wrapper-col="{ span: 16 }">
-                <a-input v-model="form.website" readOnly/>
+                <a-input v-model="form.website" readOnly />
               </a-form-item>
             </a-col>
           </a-row>
@@ -83,6 +85,7 @@
   </div>
 </template>
 <script>
+  import axios from "axios";
   import Bus from '@/lib/bus';
   const Charts = () => import("@/components/Charts.vue");
   export default {
@@ -101,25 +104,11 @@
           website: "https://www.andychao217.cn"
         },
         publicPath: process.env.BASE_URL,
-        colorList: [
-          '#c12e34', 
-          '#e6b600', 
-          '#0098d9', 
-          '#2b821d', 
-          '#005eaa', 
-          '#339ca8',
-          '#cda819',
-          '#2ec7c9',
-          '#b6a2de',
-          '#5ab1ef',
-          '#ffb980',
-          '#d87a80',
-          '#8d98b3'
-        ]
+        colorList: []
       }
     },
     computed: {
-      resumeLink () {
+      resumeLink() {
         let lang = localStorage.lang;
         if (lang === 'zh-CN') {
           return this.publicPath + 'pdf/赵庆简历.pdf';
@@ -127,11 +116,11 @@
           return this.publicPath + 'pdf/AndyChaoResume.pdf';
         }
       },
-      introArray () {
-        return (this.$t('introTxt')).split(';');
+      introArray() {
+        return this.$t('introTxt');
       },
-      hobbyArray () {
-        return (this.$t('hobbies')).split(',');
+      hobbyArray() {
+        return this.$t('hobbies');
       }
     },
     watch: {
@@ -145,6 +134,11 @@
           }, 400);
         }
       }
+    },
+    created() {
+      axios.get('data/colorList.json').then((response) => {
+        this.colorList = response.data;
+      });
     },
     mounted() {
       let _this = this;

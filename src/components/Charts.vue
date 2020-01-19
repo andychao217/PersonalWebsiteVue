@@ -13,40 +13,13 @@
 </template>
 
 <script>
+  import axios from "axios";
   export default {
     name: "Charts",
     data() {
       return {
-        chartSettings: {
-          offsetY: 0,
-          xAxisType: ['percent'],
-          digit: 2,
-          labelLine: {
-            show: true
-          },
-          itemStyle: {
-            normal: {
-              color: (params) => {
-                var colorList = [
-                  '#c12e34', 
-                  '#e6b600', 
-                  '#0098d9', 
-                  '#2b821d', 
-                  '#005eaa', 
-                  '#339ca8',
-                  '#cda819',
-                  '#2ec7c9',
-                  '#b6a2de',
-                  '#5ab1ef',
-                  '#ffb980',
-                  '#d87a80',
-                  '#8d98b3'
-                ]
-                return colorList[params.dataIndex]
-              }
-            }
-          }
-        },
+        colorList: [],
+        chartSettings: {},
         chartExtend: {
           legend () {
             return {
@@ -123,6 +96,31 @@
           ]
         }
       };
+    },
+    created () {
+      axios.get('data/colorList.json').then((response)=>{
+        this.colorList = response.data;
+      });
+    },
+    mounted () {
+      let _this = this;
+      setTimeout(() => {
+        _this.chartSettings = {
+          offsetY: 0,
+          xAxisType: ['percent'],
+          digit: 2,
+          labelLine: {
+            show: true
+          },
+          itemStyle: {
+            normal: {
+              color: (params) => {
+                return _this.colorList[params.dataIndex]
+              }
+            }
+          }
+        }
+      }, 100);
     }
   };
 

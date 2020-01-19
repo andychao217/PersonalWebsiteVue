@@ -39,7 +39,7 @@
 </template>
 <script>
   import Bus from '@/lib/bus';
-  import portfolioData from "@/lib/portfolioData.js";
+  import axios from "axios";
   export default {
     name: "portfolio",
     data() {
@@ -89,6 +89,11 @@
         }, 100);
       }
     },
+    created () {
+      axios.get('data/portfolioData.json').then((response)=>{
+        this.gridData = response.data;
+      });
+    },
     mounted() {
       let _this = this;
       this.contentHeight = this.$util.resizeTable();
@@ -102,7 +107,6 @@
           _this.contentHeight = _this.$util.resizeTable();
         })()
       }
-      this.gridData = portfolioData;
     },
     beforeRouteLeave(to, from, next) {
       this.$destroy();

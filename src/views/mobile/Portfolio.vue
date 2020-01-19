@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-  import portfolioData from "@/lib/portfolioData.js";
+  import axios from "axios";
   import MobileFooter from "@/components/MobileFooter.vue";
   import Vue from 'vue';
   import { ImagePreview } from 'vant';
@@ -65,6 +65,11 @@
         }
       }
     },
+    created () {
+      axios.get('data/portfolioData.json').then((response)=>{
+        this.gridData = response.data;
+      });
+    },
     methods: {
       handleOpenModal (item) {
         console.log(item);
@@ -87,7 +92,6 @@
           _this.contentHeight = _this.$util.resizeTable();
         })();
       };
-      this.gridData = portfolioData;
     },
     beforeRouteLeave(to, from, next) {
       this.$destroy();

@@ -6,7 +6,7 @@
           <a-icon slot="dot" :type="item.icon" style="font-size: 24px;" />
           <h3 style="font-weight:bolder;margin-left:5px;">{{$t(item.title)}}</h3>
           <a-timeline>
-            <a-timeline-item v-for="(experience, index2) in item.experience" :key="index2" style="text-align:left;">
+            <a-timeline-item v-for="(experience, indexExp) in item.experience" :key="indexExp" style="text-align:left;">
               <a-card :title="$t(experience.title)" size="small" hoverable>
                 <p>
                   {{experience.starttime}} - {{$t(experience.endtime)}}
@@ -14,8 +14,8 @@
                 <p v-if="experience.content !== 'workSponContent'">
                   {{$t(experience.content)}}
                 </p>
-                <a-list v-else size="small" bordered :dataSource="$t(experience.content).split(';')">
-                  <a-list-item slot="renderItem" slot-scope="item">{{item}}</a-list-item>
+                <a-list v-else size="small" bordered>
+                  <a-list-item v-for="(content, indexContent) in $t(experience.content)" :key="indexContent">{{content}}</a-list-item>
                 </a-list>
               </a-card>
             </a-timeline-item>
@@ -27,7 +27,7 @@
 </template>
 <script>
   import Bus from '@/lib/bus';
-  import timeLineData from '@/lib/timeLineData.js';
+  import axios from "axios";
   export default {
     name: "timeLine",
     data() {
@@ -48,6 +48,11 @@
         }
       }
     },
+    created () {
+      axios.get('data/timeLineData.json').then((response)=>{
+        this.data = response.data;
+      });
+    },
     mounted() {
       let _this = this;
       this.contentHeight = this.$util.resizeTable();
@@ -61,7 +66,6 @@
           _this.contentHeight = _this.$util.resizeTable();
         })()
       }
-      this.data = timeLineData;
     },
     beforeRouteLeave(to, from, next) {
       this.$destroy();

@@ -15,7 +15,7 @@
             </span>
             <div v-else>
               <van-cell
-                v-for="item in $t(experience.content).split(';')"
+                v-for="item in $t(experience.content)"
                 :key="item"
                 :title="item"
                 style="text-align:left; background:whitesmoke;padding:10px 0px;"
@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-  import timeLineData from '@/lib/timeLineData.js';
+  import axios from "axios";
   import MobileFooter from "@/components/MobileFooter.vue";
   export default {
     name: "timeLineMobile",
@@ -57,7 +57,12 @@
         }
       }
     },
-    mounted() {
+    created () {
+      axios.get('data/timeLineData.json').then((response)=>{
+        this.data = response.data;
+      });
+    },
+    mounted () {
       let _this = this;
       this.contentHeight = this.$util.resizeTable();
       window.onresize = () => {
@@ -65,7 +70,6 @@
           _this.contentHeight = _this.$util.resizeTable();
         })()
       };
-      this.data = timeLineData;
     },
     beforeRouteLeave(to, from, next) {
       this.$destroy();

@@ -39,7 +39,7 @@
     },
     computed: {
       fullscreenInfo() {
-        return this.value ? this.$t("m.fullscreenExit") : this.$t("m.fullscreen");
+        return this.value ? this.$t("fullscreenExit") : this.$t("fullscreen");
       },
       resumeLink() {
         let lang = this.lang

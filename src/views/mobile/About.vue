@@ -30,7 +30,7 @@
       <van-tabs v-model="active" @touchstart.native="handleTouchStart" @touchend.native="handleTouchEnd">
         <van-tab :title="$t('introTitle')">
           <van-row style="padding:10px;">
-            <van-cell v-for="(item, index) in introArray" :key="item">{{index+1}}. {{item}}</van-cell>
+            <van-cell v-for="item in introArray" :key="item">{{item}}</van-cell>
           </van-row>
           <van-row style="padding:10px 25px;text-align:left;">
             <strong>{{$t('hobbyTitle')}}: </strong>
@@ -71,6 +71,7 @@
   </div>
 </template>
 <script>
+  import axios from "axios";
   import MobileFooter from "@/components/MobileFooter.vue";
   const Charts = () => import("@/components/Charts.vue");
   export default {
@@ -92,21 +93,7 @@
           website: "https://www.andychao217.cn"
         },
         publicPath: process.env.BASE_URL,
-        colorList: [
-          '#c12e34', 
-          '#e6b600', 
-          '#0098d9', 
-          '#2b821d', 
-          '#005eaa', 
-          '#339ca8',
-          '#cda819',
-          '#2ec7c9',
-          '#b6a2de',
-          '#5ab1ef',
-          '#ffb980',
-          '#d87a80',
-          '#8d98b3'
-        ],
+        colorList: [],
         touchStartX: 0,
         touchEndX: 0,
         touchStartY: 0,
@@ -123,10 +110,10 @@
         }
       },
       introArray () {
-        return (this.$t('introTxt')).split(';');
+        return this.$t('introTxt');
       },
       hobbyArray () {
-        return (this.$t('hobbies')).split(',');
+        return this.$t('hobbies');
       }
     },
     watch: {
@@ -173,6 +160,11 @@
         }
         this.active = curTabIndex;
       }
+    },
+    created () {
+      axios.get('data/colorList.json').then((response)=>{
+        this.colorList = response.data;
+      });
     },
     mounted() {
       let _this = this;
