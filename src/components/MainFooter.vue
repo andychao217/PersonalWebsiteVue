@@ -63,14 +63,12 @@
 </template>
 
 <script>
-  import weixinPic from "@/assets/weixin.jpg";
-  import baianPic from "@/assets/beian.png";
   export default {
     name: 'MainFooter',
     data() {
       return {
-        imgUrl: baianPic,
-        wxImgUrl: weixinPic
+        imgUrl: process.env.BASE_URL + 'images/beian.png',
+        wxImgUrl: process.env.BASE_URL + 'images/weixin.jpg'
       }
     }
   }

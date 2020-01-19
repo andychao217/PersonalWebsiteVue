@@ -44,9 +44,9 @@
       resumeLink() {
         let lang = this.lang
         if (lang === 'zh-CN') {
-          return this.publicPath + '赵庆简历.pdf';
+          return this.publicPath + 'pdf/赵庆简历.pdf';
         } else {
-          return this.publicPath + 'AndyChaoResume.pdf';
+          return this.publicPath + 'pdf/AndyChaoResume.pdf';
         }
       }
     },

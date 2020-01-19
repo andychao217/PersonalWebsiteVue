@@ -11,7 +11,7 @@ import VCharts from 'v-charts';
 import "ant-design-vue/dist/antd.css";
 import 'vant/lib/index.css';
 import "./css/index.css";
-import './registerServiceWorker';
+// import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 Vue.prototype.$bus = Bus;

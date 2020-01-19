@@ -84,7 +84,6 @@
 </template>
 <script>
   import Bus from '@/lib/bus';
-  import profilePic from "@/assets/profilepic.jpg";
   const Charts = () => import("@/components/Charts.vue");
   export default {
     name: "about",
@@ -94,7 +93,7 @@
     data() {
       return {
         contentHeight: 690,
-        imgUrl: profilePic,
+        imgUrl: process.env.BASE_URL + 'images/profilepic.jpg',
         form: {
           name: "赵庆",
           mail: "andychao217@qq.com",
@@ -123,9 +122,9 @@
       resumeLink () {
         let lang = localStorage.lang;
         if (lang === 'zh-CN') {
-          return this.publicPath + '赵庆简历.pdf';
+          return this.publicPath + 'pdf/赵庆简历.pdf';
         } else {
-          return this.publicPath + 'AndyChaoResume.pdf';
+          return this.publicPath + 'pdf/AndyChaoResume.pdf';
         }
       },
       introArray () {
@@ -175,14 +174,14 @@
     text-align: center;
     border-radius: 5px;
     height: 200px;
-    background-image: url('../../assets/bg1.jpg');
+    background-image: url('../../../public/images/bg1.jpg');
     background-repeat: no-repeat;
     background-position: center;
     overflow: hidden;
   }
 
   .ant-carousel>>>.slick-slide:nth-child(odd) {
-    background-image: url('../../assets/bg2.jpg');
+    background-image: url('../../../public/images/bg2.jpg');
   }
 
 

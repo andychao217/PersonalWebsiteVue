@@ -14,12 +14,11 @@
 </template>
 
 <script>
-  import baianPic from "@/assets/beian.png";
   export default {
     name: 'MainFooter',
     data() {
       return {
-        imgUrl: baianPic
+        imgUrl: process.env.BASE_URL + 'images/beian.png'
       }
     }
   }

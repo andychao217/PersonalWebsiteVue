@@ -20,7 +20,6 @@
 </template>
 
 <script>
-  import profilePic from "@/assets/profilepic.jpg";
   export default {
     name: "mobile",
     data() {
@@ -29,7 +28,7 @@
         menus: null,
         titleTxt: "",
         publicPath: process.env.BASE_URL,
-        imgUrl: profilePic,
+        imgUrl: process.env.BASE_URL + 'images/profilepic.jpg',
         lang: 'zh-CN',
         langOptions: [
           { text: '中', value: 'zh-CN' },
@@ -41,9 +40,9 @@
       resumeLink() {
         let lang = this.lang
         if (lang === 'zh-CN') {
-          return this.publicPath + '赵庆简历.pdf';
+          return this.publicPath + 'pdf/赵庆简历.pdf';
         } else {
-          return this.publicPath + 'AndyChaoResume.pdf';
+          return this.publicPath + 'pdf/AndyChaoResume.pdf';
         }
       }
     },

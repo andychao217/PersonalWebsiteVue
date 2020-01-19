@@ -71,8 +71,6 @@
   </div>
 </template>
 <script>
-  import bgPic1 from "@/assets/bg1.jpg";
-  import bgPic2 from "@/assets/bg2.jpg";
   import MobileFooter from "@/components/MobileFooter.vue";
   const Charts = () => import("@/components/Charts.vue");
   export default {
@@ -85,8 +83,8 @@
       return {
         contentHeight: 690,
         active: 0,
-        bgUrl1: 'url(' + bgPic1 + ')',
-        bgUrl2: 'url(' + bgPic2 + ')',
+        bgUrl1: 'url(' + process.env.BASE_URL + 'images/bg1.jpg' + ')',
+        bgUrl2: 'url(' + process.env.BASE_URL + 'images/bg2.jpg' + ')',
         form: {
           name: "赵庆",
           mail: "andychao217@qq.com",
@@ -119,9 +117,9 @@
       resumeLink() {
         let lang = localStorage.lang;
         if (lang === 'zh-CN') {
-          return this.publicPath + '赵庆简历.pdf';
+          return this.publicPath + 'pdf/赵庆简历.pdf';
         } else {
-          return this.publicPath + 'AndyChaoResume.pdf';
+          return this.publicPath + 'pdf/AndyChaoResume.pdf';
         }
       },
       introArray () {

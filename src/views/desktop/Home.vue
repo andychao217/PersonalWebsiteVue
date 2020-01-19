@@ -67,7 +67,6 @@
   import Bus from '@/lib/bus';
   const MainFooter = () => import("@/components/MainFooter.vue");
   const HeaderToolbar = () => import("@/components/HeaderToolbar.vue");
-  import profilePic from "@/assets/profilepic.jpg";
   //import Darkmode from "darkmode-js";
 
   export default {
@@ -80,7 +79,7 @@
       return {
         collapsed: false,
         logoText: "ANDY CHAO",
-        imgUrl: profilePic,
+        imgUrl: process.env.BASE_URL + 'images/profilepic.jpg',
         isFullscreen: false,
         menus: null
       };
