@@ -1,39 +1,39 @@
 const timelineData = [
     {
-        title: "m.educationTitle",
+        title: "educationTitle",
         color: "green",
         icon: "read",
         experience: [
             {
                 starttime: "2006-9",
                 endtime: "2010-6",
-                title: "m.bachelorTitle",
-                content: "m.bachelorContent"
+                title: "bachelorTitle",
+                content: "bachelorContent"
             },
             {
                 starttime: "2010-9",
                 endtime: "2013-6",
-                title: "m.masterTitle",
-                content: "m.masterContent"
+                title: "masterTitle",
+                content: "masterContent"
             },
             {
                 starttime: "2015-9",
-                endtime: "m.tillNow",
-                title: "m.selfLearningTitle",
-                content: "m.selfLearningContent"
+                endtime: "tillNow",
+                title: "selfLearningTitle",
+                content: "selfLearningContent"
             }
         ] 
     },
     {
-        title: "m.workTitle",
+        title: "workTitle",
         color: "red",
         icon: "desktop",
         experience: [
             {
                 starttime: "2017-4",
-                endtime: "m.tillNow",
-                title: "m.workSponTitle",
-                content: "m.workSponContent"
+                endtime: "tillNow",
+                title: "workSponTitle",
+                content: "workSponContent"
             }
         ] 
     }

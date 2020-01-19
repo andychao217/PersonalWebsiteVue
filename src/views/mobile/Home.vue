@@ -51,7 +51,7 @@
         this.lang = val;
         this.$i18n.locale = this.lang;
         localStorage.lang = this.lang;
-        document.title = this.$t("m.windowTitle");
+        document.title = this.$t("windowTitle");
         this.handleChangePage(this.active);
         this.$router.go(0);
       },
@@ -59,16 +59,16 @@
         this.active = index;
         if (index === 0) {
           this.$router.push('aboutMobile');
-          this.titleTxt = this.$t('m.about');
+          this.titleTxt = this.$t('about');
         } else if (index === 1) {
           this.$router.push('timeLineMobile');
-          this.titleTxt = this.$t('m.timeLine');
+          this.titleTxt = this.$t('timeLine');
         } else if (index === 2) {
           this.$router.push('portfolioMobile');
-          this.titleTxt = this.$t('m.portfolio');
+          this.titleTxt = this.$t('portfolio');
         } else if (index === 3) {
           this.$router.push('contactMobile');
-          this.titleTxt = this.$t('m.contact');
+          this.titleTxt = this.$t('contact');
         }
       }
     },
@@ -84,7 +84,7 @@
         }
       }
       this.$i18n.locale = this.lang;
-      document.title = this.$t("m.windowTitle");
+      document.title = this.$t("windowTitle");
       this.menus = this.$router.options.routes[2].children;
       this.handleChangePage(0);
     }

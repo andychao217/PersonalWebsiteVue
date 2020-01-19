@@ -1,0 +1,21 @@
+.ant-carousel>>>.slick-slide {
+    padding: 40px 150px;
+    text-align: center;
+    border-radius: 5px;
+    height: 200px;
+    background-image: url('/images/bg1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+  }
+
+  .ant-carousel>>>.slick-slide:nth-child(odd) {
+    background-image: url('/images/bg2.jpg');
+  }
+
+
+  .ant-carousel>>>.slick-slide h3,
+  .ant-carousel>>>.slick-slide h1 {
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+  }

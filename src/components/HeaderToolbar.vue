@@ -18,11 +18,11 @@
     </a-dropdown>
     <a-tooltip placement="bottom">
       <template slot="title">
-        <span>{{$t('m.download')}}</span>
+        <span>{{$t('download')}}</span>
       </template>
       <a :href="resumeLink" target="_blank" style="font-size:20px;">
         <a-icon type="download" />
-        <span>{{$t('m.resumeTxt')}}</span>
+        <span>{{$t('resumeTxt')}}</span>
       </a>
     </a-tooltip>
   </div>
@@ -90,7 +90,7 @@
         this.lang = curLang;
         this.$i18n.locale = this.lang;
         localStorage.lang = this.lang;
-        document.title = this.$t("m.windowTitle");
+        document.title = this.$t("windowTitle");
         this.$router.go(0);
       }
     },
@@ -106,7 +106,7 @@
         }
       }
       this.$i18n.locale = this.lang;
-      document.title = this.$t("m.windowTitle");
+      document.title = this.$t("windowTitle");
       console.log(navigator.language);
     },
     mounted() {

@@ -1,15 +1,15 @@
 <template>
   <div class="scrollDiv" ref="container" :style="{height: contentHeight + 'px'}">
-    <a-alert :message="$t('m.helloWhoAmI')" type="info" showIcon />
+    <a-alert :message="$t('helloWhoAmI')" type="info" showIcon />
     <a-row style="margin-top: 10px;">
       <a-carousel autoplay vertical>
         <div style="margin-top:20px;">
-          <h1>{{$t('m.lifeMottoJobs1')}}</h1>
-          <h3>-{{$t('m.jobs')}}</h3>
+          <h1>{{$t('lifeMottoJobs1')}}</h1>
+          <h3>-{{$t('jobs')}}</h3>
         </div>
         <div>
-          <h1>{{$t('m.lifeMottoGump')}}</h1>
-          <h3>-{{$t('m.gump')}}</h3>
+          <h1>{{$t('lifeMottoGump')}}</h1>
+          <h3>-{{$t('gump')}}</h3>
         </div>
       </a-carousel>
     </a-row>
@@ -17,19 +17,19 @@
       <a-col span="14">
         <a-list size="small" bordered :dataSource="introArray" style="height:438px;">
           <a-list-item slot="renderItem" slot-scope="item, index" style="text-align:left;">{{index+1}}. {{item}}</a-list-item>
-          <div slot="header">{{$t('m.introTitle')}}</div>
+          <div slot="header">{{$t('introTitle')}}</div>
           <div slot="footer" style="text-align:left;">
-            <strong>{{$t('m.hobbyTitle')}}: </strong>
+            <strong>{{$t('hobbyTitle')}}: </strong>
             <a-tag v-for="(item, index)  in hobbyArray" :key="item" :color="colorList[index]">{{item}}</a-tag>
           </div>
         </a-list>
       </a-col>
       <a-col span="10" style="padding:20px;background:whitesmoke;border-radius:5px;height:438px;">
-        <h3 style="text-align:left;">{{$t('m.ability')}}</h3>
+        <h3 style="text-align:left;">{{$t('ability')}}</h3>
         <Charts style="margin-top:-35px;"></Charts>
       </a-col>
     </a-row>
-    <a-divider orientation="left">{{$t('m.personalInfo')}}</a-divider>
+    <a-divider orientation="left">{{$t('personalInfo')}}</a-divider>
     <a-row :gutter="10">
       <a-col span="4">
         <img :src="imgUrl" style="height:148px;border-radius:5px;">
@@ -39,7 +39,7 @@
           <a-row :gutter="10">
             <a-col span="12">
               <a-row>
-                <a-form-item :label="$t('m.nameInput')" :label-col="{ span: 8 }"
+                <a-form-item :label="$t('nameInput')" :label-col="{ span: 8 }"
                   :wrapper-col="{ span: 16 }">
                   <a-input v-model="form.name" readOnly />
                 </a-form-item>
@@ -47,7 +47,7 @@
             </a-col>
             <a-col span="12">
               <a-row>
-                <a-form-item :label="$t('m.emailInput')" :label-col="{ span: 8 }"
+                <a-form-item :label="$t('emailInput')" :label-col="{ span: 8 }"
                   :wrapper-col="{ span: 16 }">
                   <a-input type="email" v-model="form.mail" readOnly />
                 </a-form-item>
@@ -57,14 +57,14 @@
           <a-row :gutter="10">
             <a-col span="12">
               <a-row>
-                <a-form-item :label="$t('m.phoneInput')" :label-col="{ span: 8 }"
+                <a-form-item :label="$t('phoneInput')" :label-col="{ span: 8 }"
                   :wrapper-col="{ span: 16 }">
                   <a-input v-model="form.phone" readOnly />
                 </a-form-item>
               </a-row>
             </a-col>
             <a-col span="12">
-              <a-form-item :label="$t('m.websiteInput')" :label-col="{ span: 8 }"
+              <a-form-item :label="$t('websiteInput')" :label-col="{ span: 8 }"
                 :wrapper-col="{ span: 16 }">
                 <a-input v-model="form.website" readOnly/>
               </a-form-item>
@@ -76,7 +76,7 @@
     <a-row style="margin-top:10px;">
       <a :href="resumeLink" target="_blank" style="color:white; text-decoration:none;float:right;">
         <a-button type="primary" icon="download">
-          <span> {{$t('m.resumeTxt')}}</span>
+          <span> {{$t('resumeTxt')}}</span>
         </a-button>
       </a>
     </a-row>
@@ -128,10 +128,10 @@
         }
       },
       introArray () {
-        return (this.$t('m.introTxt')).split(';');
+        return (this.$t('introTxt')).split(';');
       },
       hobbyArray () {
-        return (this.$t('m.hobbies')).split(',');
+        return (this.$t('hobbies')).split(',');
       }
     },
     watch: {
@@ -167,28 +167,5 @@
   }
 
 </script>
-<style scoped>
-  /* For demo */
-  .ant-carousel>>>.slick-slide {
-    padding: 40px 150px;
-    text-align: center;
-    border-radius: 5px;
-    height: 200px;
-    background-image: url('../../../public/images/bg1.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden;
-  }
-
-  .ant-carousel>>>.slick-slide:nth-child(odd) {
-    background-image: url('../../../public/images/bg2.jpg');
-  }
-
-
-  .ant-carousel>>>.slick-slide h3,
-  .ant-carousel>>>.slick-slide h1 {
-    color: #fff;
-    text-shadow: 2px 2px 2px #000;
-  }
-
+<style src="../../css/swiperCSS.css" scoped>
 </style>

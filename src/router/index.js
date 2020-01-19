@@ -12,7 +12,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    alias: "loading",
+    alias: "/loading",
+    name: "loading",
     component: Loading
   },
   {
@@ -24,7 +25,7 @@ const routes = [
         name: "about",
         meta: {
           icon: "user",
-          title: "m.about"
+          title: "about"
         },
         component: () => import("../views/desktop/About.vue")
       },
@@ -33,7 +34,7 @@ const routes = [
         name: "timeLine",
         meta: {
           icon: "profile",
-          title: "m.timeLine"
+          title: "timeLine"
         },
         component: () => import("../views/desktop/Timeline.vue")
       },
@@ -42,7 +43,7 @@ const routes = [
         name: "portfolio",
         meta: {
           icon: "picture",
-          title: "m.portfolio"
+          title: "portfolio"
         },
         component: () => import("../views/desktop/Portfolio.vue")
       },
@@ -51,7 +52,7 @@ const routes = [
         name: "contact",
         meta: {
           icon: "mail",
-          title: "m.contact"
+          title: "contact"
         },
         component: () => import("../views/desktop/Contact.vue")
       }
@@ -67,7 +68,7 @@ const routes = [
         name: "aboutMobile",
         meta: {
           icon: "contact",
-          title: "m.about"
+          title: "about"
         },
         component: () => import("../views/mobile/About.vue")
       },
@@ -76,7 +77,7 @@ const routes = [
         name: "timeLineMobile",
         meta: {
           icon: "description",
-          title: "m.timeLine"
+          title: "timeLine"
         },
         component: () => import("../views/mobile/Timeline.vue")
       },
@@ -85,7 +86,7 @@ const routes = [
         name: "portfolioMobile",
         meta: {
           icon: "photo-o",
-          title: "m.portfolio"
+          title: "portfolio"
         },
         component: () => import("../views/mobile/Portfolio.vue")
       },
@@ -94,7 +95,7 @@ const routes = [
         name: "contactMobile",
         meta: {
           icon: "envelop-o",
-          title: "m.contact"
+          title: "contact"
         },
         component: () => import("../views/mobile/Contact.vue")
       }

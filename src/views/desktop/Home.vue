@@ -15,15 +15,15 @@
       </a-menu>
       <div v-if="!collapsed" style="position:absolute; left:0px; bottom:0px; height:76px; width:100%; padding: 10px;">
         <a-tag color="#f50" style="margin-bottom:10px; width:100%;">
-          <span style="width:70px;">{{$t('m.dedaoPointTxt')}}</span>
+          <span style="width:70px;">{{$t('dedaoPointTxt')}}</span>
           <a-divider type="vertical" />
-          <span>{{$t('m.dedaoPoint')}}</span>
+          <span>{{$t('dedaoPoint')}}</span>
         </a-tag>
         <br>
         <a-tag color="#108ee9" style="width:100%;">
-          <span style="width:70px;">{{$t('m.zhimaCreditTxt')}}</span>
+          <span style="width:70px;">{{$t('zhimaCreditTxt')}}</span>
           <a-divider type="vertical" />
-          <span>{{$t('m.zhimaCredit')}}</span>
+          <span>{{$t('zhimaCredit')}}</span>
         </a-tag>
       </div>
     </a-layout-sider>
@@ -86,7 +86,7 @@
     },
     computed: {
       collapseTxt() {
-        return this.collapsed ? this.$t('m.expand') : this.$t('m.collapse');
+        return this.collapsed ? this.$t('expand') : this.$t('collapse');
       }
     },
     methods: {

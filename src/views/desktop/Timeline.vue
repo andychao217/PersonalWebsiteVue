@@ -11,7 +11,7 @@
                 <p>
                   {{experience.starttime}} - {{$t(experience.endtime)}}
                 </p>
-                <p v-if="experience.content !== 'm.workSponContent'">
+                <p v-if="experience.content !== 'workSponContent'">
                   {{$t(experience.content)}}
                 </p>
                 <a-list v-else size="small" bordered :dataSource="$t(experience.content).split(';')">

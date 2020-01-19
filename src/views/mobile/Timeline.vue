@@ -10,7 +10,7 @@
           :desc="experience.starttime + ' - '  + $t(experience.endtime)"
         >
           <div style="padding: 10px 15px;background:whitesmoke;">
-            <span v-if="experience.content !== 'm.workSponContent'" style="color:black">
+            <span v-if="experience.content !== 'workSponContent'" style="color:black">
               {{$t(experience.content)}}
             </span>
             <div v-else>

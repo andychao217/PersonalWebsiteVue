@@ -7,58 +7,58 @@
         background="#ecf9ff"
         left-icon="info-o"
       >
-        {{$t('m.helloWhoAmI')}} ({{$t('m.dedaoPointTxt')}}: {{$t('m.dedaoPoint')}} | {{$t('m.zhimaCreditTxt')}}: {{$t('m.zhimaCredit')}})
+        {{$t('helloWhoAmI')}} ({{$t('dedaoPointTxt')}}: {{$t('dedaoPoint')}} | {{$t('zhimaCreditTxt')}}: {{$t('zhimaCredit')}})
       </van-notice-bar>
     </van-sticky>
     <van-row>
       <van-swipe :autoplay="3000" indicator-color="white">
         <van-swipe-item>
           <div class="swipeDiv" :style="{backgroundImage: bgUrl1}">
-            <h3 style="margin-top:10px;">{{$t('m.lifeMottoJobs1')}}</h3>
-            <h1>-{{$t('m.jobs')}}</h1>
+            <h3 style="margin-top:10px;">{{$t('lifeMottoJobs1')}}</h3>
+            <h1>-{{$t('jobs')}}</h1>
           </div>
         </van-swipe-item>
         <van-swipe-item>
           <div class="swipeDiv" :style="{backgroundImage: bgUrl2}">
-            <h3>{{$t('m.lifeMottoGump')}}</h3>
-            <h1>-{{$t('m.gump')}}</h1>
+            <h3>{{$t('lifeMottoGump')}}</h3>
+            <h1>-{{$t('gump')}}</h1>
           </div>
         </van-swipe-item>
       </van-swipe>
     </van-row>
     <van-row>
       <van-tabs v-model="active" @touchstart.native="handleTouchStart" @touchend.native="handleTouchEnd">
-        <van-tab :title="$t('m.introTitle')">
+        <van-tab :title="$t('introTitle')">
           <van-row style="padding:10px;">
             <van-cell v-for="(item, index) in introArray" :key="item">{{index+1}}. {{item}}</van-cell>
           </van-row>
           <van-row style="padding:10px 25px;text-align:left;">
-            <strong>{{$t('m.hobbyTitle')}}: </strong>
+            <strong>{{$t('hobbyTitle')}}: </strong>
             <van-tag plain v-for="(item, index) in hobbyArray" :key="item" :color="colorList[index]" style="margin-right:5px;font-size:14px;">{{item}}</van-tag>
           </van-row>
         </van-tab>
-        <van-tab :title="$t('m.ability')">
+        <van-tab :title="$t('ability')">
           <div style="padding:20px;">
             <Charts></Charts>
           </div>
         </van-tab>
-        <van-tab :title="$t('m.personalInfo')">
+        <van-tab :title="$t('personalInfo')">
           <van-row style="margin-top:20px;">
             <van-cell-group>
               <van-field v-model="form.name" readonly clickable left-icon="contact" label-align="left"
-                :label="$t('m.nameInput')" />
+                :label="$t('nameInput')" />
               <van-field v-model="form.mail" type="email" left-icon="envelop-o" readonly clickable
-                label-align="left" :label="$t('m.emailInput')" />
+                label-align="left" :label="$t('emailInput')" />
               <van-field v-model="form.phone" readonly clickable left-icon="phone-o" label-align="left"
-                :label="$t('m.phoneInput')" />
+                :label="$t('phoneInput')" />
               <van-field v-model="form.website" readonly clickable left-icon="wap-home-o"
-                label-align="left" :label="$t('m.websiteInput')" />
+                label-align="left" :label="$t('websiteInput')" />
             </van-cell-group>
           </van-row>
           <van-row style="margin-top:10px;padding:10px 16px;">
             <a :href="resumeLink" target="_blank" style="color:white; text-decoration:none;">
               <van-button icon="down" type="info" block>
-                <span> {{$t('m.resumeTxt')}}</span>
+                <span> {{$t('resumeTxt')}}</span>
               </van-button>
             </a>
           </van-row>
@@ -123,10 +123,10 @@
         }
       },
       introArray () {
-        return (this.$t('m.introTxt')).split(';');
+        return (this.$t('introTxt')).split(';');
       },
       hobbyArray () {
-        return (this.$t('m.hobbies')).split(',');
+        return (this.$t('hobbies')).split(',');
       }
     },
     watch: {

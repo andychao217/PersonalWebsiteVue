@@ -30,7 +30,7 @@
         </bm-marker>
       </baidu-map>
     </van-row>
-    <van-divider content-position="left">{{$t('m.contactTitle')}}</van-divider>
+    <van-divider content-position="left">{{$t('contactTitle')}}</van-divider>
     <van-row>
       <van-row>
         <van-col :span="12">
@@ -41,22 +41,22 @@
         </van-col>
       </van-row>
     </van-row>
-    <van-divider content-position="left">{{$t('m.send')}}</van-divider>
+    <van-divider content-position="left">{{$t('send')}}</van-divider>
     <van-row>
       <van-cell-group>
         <van-field v-model="form.name" required clearable clickable left-icon="contact"
-          label-align="left" :label="$t('m.nameInput')" />
+          label-align="left" :label="$t('nameInput')" />
         <van-field v-model="form.mail" type="email" required left-icon="envelop-o" clearable
-          clickable label-align="left" :label="$t('m.emailInput')" />
+          clickable label-align="left" :label="$t('emailInput')" />
         <van-field v-model="form.subject" required clearable clickable left-icon="comment-o"
-          label-align="left" :label="$t('m.subjectInput')" />
+          label-align="left" :label="$t('subjectInput')" />
         <van-field v-model="form.message" rows="5" autosize required clearable clickable
-          left-icon="description" label-align="left" :label="$t('m.messageInput')" type="textarea"
+          left-icon="description" label-align="left" :label="$t('messageInput')" type="textarea"
           maxlength="60" show-word-limit />
       </van-cell-group>
     </van-row>
     <van-row>
-      <van-button type="primary" @click="handleSubmit" block>{{$t('m.submit')}}</van-button>
+      <van-button type="primary" @click="handleSubmit" block>{{$t('submit')}}</van-button>
     </van-row>
     <van-row>
       <MobileFooter></MobileFooter>
@@ -110,10 +110,10 @@
     },
     computed: {
       findMeTxt() {
-        return this.$t('m.findMe');
+        return this.$t('findMe');
       },
       myPosTxt() {
-        return this.$t('m.iAmHere');
+        return this.$t('iAmHere');
       }
     },
     watch: {
@@ -152,18 +152,18 @@
           _this.form.mail === "" ||
           _this.form.message === ""
         ) {
-          Toast.fail(_this.$t('m.errorMessage'));
+          Toast.fail(_this.$t('errorMessage'));
         } else {
           sendMail(_this.form.name, _this.form.mail, _this.form.subject, _this.form.message).then(
             response => {
               if (response.data === "OK") {
-                Toast.success(_this.$t('m.sendSuccess'));
+                Toast.success(_this.$t('sendSuccess'));
                 _this.form.name = "";
                 _this.form.mail = "";
                 _this.form.subject = "";
                 _this.form.message = "";
               } else {
-                Toast.fail(_this.$t('m.sendFailed'));
+                Toast.fail(_this.$t('sendFailed'));
               }
             }).catch(response => {
               console.log(response);

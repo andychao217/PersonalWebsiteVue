@@ -29,40 +29,40 @@
         </bm-marker>
       </baidu-map>
     </a-row>
-    <a-divider orientation="left">{{$t('m.contactTitle')}}</a-divider>
+    <a-divider orientation="left">{{$t('contactTitle')}}</a-divider>
     <a-row style="margin-top:10px;text-align:left;">
       <a-row>
-        <span>{{$t('m.mailMe')}}</span><a href="mailto:andychao217@qq.com">andychao217@qq.com</a>
+        <span>{{$t('mailMe')}}</span><a href="mailto:andychao217@qq.com">andychao217@qq.com</a>
       </a-row>
       <a-row>
-        <span>{{$t('m.phoneNum')}}</span><a href="tel:13548691522"> (+86)135-4869-1522</a>
+        <span>{{$t('phoneNum')}}</span><a href="tel:13548691522"> (+86)135-4869-1522</a>
       </a-row>
     </a-row>
-    <a-divider orientation="left">{{$t('m.send')}}</a-divider>
+    <a-divider orientation="left">{{$t('send')}}</a-divider>
     <a-form :form="form">
       <a-row :gutter="5">
         <a-col span="8">
           <a-row>
-            <a-form-item :label="$t('m.nameInput')" :label-col="{ span: 8 }"
+            <a-form-item :label="$t('nameInput')" :label-col="{ span: 8 }"
               :wrapper-col="{ span: 16 }">
               <a-input v-model="form.name" allowClear />
             </a-form-item>
           </a-row>
           <a-row>
-            <a-form-item :label="$t('m.emailInput')" :label-col="{ span: 8 }"
+            <a-form-item :label="$t('emailInput')" :label-col="{ span: 8 }"
               :wrapper-col="{ span: 16 }">
               <a-input type="email" v-model="form.mail" allowClear />
             </a-form-item>
           </a-row>
           <a-row>
-            <a-form-item :label="$t('m.subjectInput')" :label-col="{ span: 8 }"
+            <a-form-item :label="$t('subjectInput')" :label-col="{ span: 8 }"
               :wrapper-col="{ span: 16 }">
               <a-input v-model="form.subject" allowClear />
             </a-form-item>
           </a-row>
         </a-col>
         <a-col span="16">
-          <a-form-item :label="$t('m.messageInput')" :label-col="{ span: 3 }"
+          <a-form-item :label="$t('messageInput')" :label-col="{ span: 3 }"
             :wrapper-col="{ span: 21 }" style="margin-right:10px;">
             <a-input type="textarea" v-model="form.message" allowClear
               style="height:160px;margin-top:4px;" />
@@ -72,7 +72,7 @@
       <a-row>
         <a-form-item style="float:right;margin-right:10px;margin-top:-20px;">
           <a-button type="primary" @click="handleSubmit">
-            {{$t('m.submit')}}
+            {{$t('submit')}}
           </a-button>
         </a-form-item>
       </a-row>
@@ -122,10 +122,10 @@
     },
     computed: {
       findMeTxt() {
-        return this.$t('m.findMe');
+        return this.$t('findMe');
       },
       myPosTxt() {
-        return this.$t('m.iAmHere');
+        return this.$t('iAmHere');
       }
     },
     watch: {
@@ -165,16 +165,16 @@
           _this.form.message === ""
         ) {
           _this.$error({
-            title: _this.$t('m.error'),
-            content: _this.$t('m.errorMessage')
+            title: _this.$t('error'),
+            content: _this.$t('errorMessage')
           });
         } else {
           sendMail(_this.form.name, _this.form.mail, _this.form.subject, _this.form.message).then(
             response => {
               if (response.data === "OK") {
                 _this.$notification.success({
-                  message: _this.$t('m.sendSuccess'),
-                  description: _this.$t('m.sendSuccessContent')
+                  message: _this.$t('sendSuccess'),
+                  description: _this.$t('sendSuccessContent')
                 });
                 _this.form.name = "";
                 _this.form.mail = "";
@@ -182,7 +182,7 @@
                 _this.form.message = "";
               } else {
                 _this.$notification.error({
-                  message: _this.$t('m.sendFailed'),
+                  message: _this.$t('sendFailed'),
                   description: response.data
                 });
               }

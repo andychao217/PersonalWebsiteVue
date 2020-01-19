@@ -7,6 +7,7 @@
 </template>
 
 <script>
+  import axios from 'axios';
   export default {
     name: 'App',
     beforeCreate () {
@@ -15,6 +16,10 @@
       } else {
         this.$router.push('about');
       }
+      axios.get('lang/lang.json').then((response)=>{
+        this.$i18n.mergeLocaleMessage('en-US', response.data.en)
+        this.$i18n.mergeLocaleMessage('zh-CN', response.data.cn)
+      })
     }
   };
 
