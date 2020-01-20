@@ -97,12 +97,7 @@
       return {
         contentHeight: 690,
         imgUrl: process.env.BASE_URL + 'images/profilepic.jpg',
-        form: {
-          name: "赵庆",
-          mail: "andychao217@qq.com",
-          phone: "(+86)13548691522",
-          website: "https://www.andychao217.cn"
-        },
+        form: {},
         publicPath: process.env.BASE_URL,
         colorList: []
       }
@@ -139,6 +134,11 @@
       axios.get('data/colorList.json').then((response) => {
         this.colorList = response.data;
       });
+      setTimeout(() => {
+        axios.get('data/contactInfo.json').then((response)=>{
+          this.form = response.data;
+        });
+      }, 100);
     },
     mounted() {
       let _this = this;
