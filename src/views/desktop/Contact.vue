@@ -80,6 +80,7 @@
   </div>
 </template>
 <script>
+  import axios from "axios";
   import Bus from '@/lib/bus';
   import {
     sendMail
@@ -143,19 +144,14 @@
     methods: {
       handler() {
         //  console.log(BMap, map)
-        this.center = {
-          lng: 112.979,
-          lat: 28.213
-        };
-        this.zoom = 15;
+        axios.get('data/location.json').then((response) => {
+          this.center = response.data.location;
+          this.zoom = response.data.zoom;
+        });
       },
       handleFindMe() {
         //  console.log(e)
-        this.center = {
-          lng: 112.979,
-          lat: 28.213
-        };
-        this.zoom = 15;
+        this.handler();
       },
       handleSubmit() {
         let _this = this;
@@ -192,7 +188,7 @@
         }
       }
     },
-    mounted() {
+    mounted () {
       let _this = this;
       this.contentHeight = this.$util.resizeTable();
       window.onresize = () => {
@@ -205,7 +201,6 @@
           _this.contentHeight = _this.$util.resizeTable();
         })()
       }
-      
     },
     beforeRouteLeave(to, from, next) {
       this.$destroy();

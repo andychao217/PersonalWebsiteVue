@@ -64,6 +64,7 @@
   </div>
 </template>
 <script>
+  import axios from "axios";
   import Vue from 'vue';
   import { Toast } from 'vant';
   import {
@@ -131,19 +132,14 @@
     methods: {
       handler() {
         //  console.log(BMap, map)
-        this.center = {
-          lng: 112.979,
-          lat: 28.213
-        };
-        this.zoom = 15;
+        axios.get('data/location.json').then((response) => {
+          this.center = response.data.location;
+          this.zoom = response.data.zoom;
+        });
       },
       handleFindMe() {
         //  console.log(e)
-        this.center = {
-          lng: 112.979,
-          lat: 28.213
-        };
-        this.zoom = 15;
+        this.handler();
       },
       handleSubmit() {
         let _this = this;
