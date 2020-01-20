@@ -40,67 +40,20 @@
         },
         chartData: {
           columns: ['item', 'value'],
-          rows: [
-            {
-              'item': 'HTML',
-              'value': 0.95
-            },
-            {
-              'item': 'JavaScript',
-              'value': 0.85
-            },
-            {
-              'item': 'CSS',
-              'value': 0.80
-            },
-            {
-              'item': 'jQuery',
-              'value': 0.90
-            },
-            {
-              'item': 'Vue.js',
-              'value': 0.90
-            },
-            {
-              'item': 'php',
-              'value': 0.80
-            },
-            {
-              'item': 'Go',
-              'value': 0.60
-            },
-            {
-              'item': 'Electron',
-              'value': 0.60
-            },
-            {
-              'item': 'Node.js',
-              'value': 0.70
-            },
-            {
-              'item': 'Wechat',
-              'value': 0.80
-            },
-            {
-              'item': 'Qt',
-              'value': 0.80
-            },
-            {
-              'item': 'C++',
-              'value': 0.70
-            },
-            {
-              'item': 'Python',
-              'value': 0.70
-            }
-          ]
+          rows: []
         }
       };
     },
     created () {
+      let _this = this;
       axios.get('data/colorList.json').then((response)=>{
-        this.colorList = response.data;
+        _this.colorList = response.data;
       });
+      setTimeout(() => {
+        axios.get('data/abilities.json').then((response)=>{
+          _this.chartData.rows = response.data;
+        });
+      }, 100);
     },
     mounted () {
       let _this = this;

@@ -1,0 +1,54 @@
+[
+    {
+        "item": "HTML", 
+        "value": 0.95
+    }, 
+    {
+        "item": "JavaScript", 
+        "value": 0.85
+    }, 
+    {
+        "item": "CSS", 
+        "value": 0.8
+    }, 
+    {
+        "item": "jQuery", 
+        "value": 0.9
+    }, 
+    {
+        "item": "Vue.js", 
+        "value": 0.9
+    }, 
+    {
+        "item": "php", 
+        "value": 0.8
+    }, 
+    {
+        "item": "Go", 
+        "value": 0.6
+    }, 
+    {
+        "item": "Electron", 
+        "value": 0.6
+    }, 
+    {
+        "item": "Node.js", 
+        "value": 0.7
+    }, 
+    {
+        "item": "Wechat", 
+        "value": 0.8
+    }, 
+    {
+        "item": "Qt", 
+        "value": 0.8
+    }, 
+    {
+        "item": "C++", 
+        "value": 0.7
+    }, 
+    {
+        "item": "Python", 
+        "value": 0.7
+    }
+]
