@@ -3,14 +3,14 @@
     :style="{overflowY:'auto', height: contentHeight + 133 + 'px'}">
     <van-collapse v-model="activeName" accordion style="text-align:left;">
       <van-collapse-item v-for="(item, index) in data" :key="index" :title="$t(item.title)" :name="index" style="padding:0px;">
-        <van-panel 
-          v-for="(experience, index2) in item.experience" 
-          :key="index2" 
-          :title="$t(experience.title)" 
+        <van-panel
+          v-for="(experience, index2) in item.experience"
+          :key="index2"
+          :title="$t(experience.title)"
           :desc="experience.starttime + ' - '  + $t(experience.endtime)"
         >
           <div style="padding: 10px 15px;background:whitesmoke;">
-            <span v-if="experience.content !== 'workSponContent'" style="color:black">
+            <span v-if="experience.content !== 'workSponContent' && experience.content !== 'workYssContent'" style="color:black">
               {{$t(experience.content)}}
             </span>
             <div v-else>

@@ -11,7 +11,7 @@
                 <p>
                   {{experience.starttime}} - {{$t(experience.endtime)}}
                 </p>
-                <p v-if="experience.content !== 'workSponContent'">
+                <p v-if="experience.content !== 'workSponContent' && experience.content !== 'workYssContent'">
                   {{$t(experience.content)}}
                 </p>
                 <a-list v-else size="small" bordered>

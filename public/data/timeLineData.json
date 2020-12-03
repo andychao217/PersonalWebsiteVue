@@ -31,9 +31,15 @@
         "experience": [
             {
                 "starttime": "2017-4", 
-                "endtime": "tillNow", 
+                "endtime": "2020-4", 
                 "title": "workSponTitle", 
                 "content": "workSponContent"
+            },
+            {
+                "starttime": "2020-5", 
+                "endtime": "tillNow", 
+                "title": "workYssTitle", 
+                "content": "workYssContent"
             }
         ]
     }
